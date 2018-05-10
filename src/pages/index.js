@@ -3,6 +3,12 @@ import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import axios from 'axios'
 
+axios.get(`https://cityenglishproject.com/class_times.json`)
+  .then(function(response){
+    console.log(response.data); // ex.: { user: 'Your User'}
+    console.log(response.status); // ex.: 200
+  });
+
 export default class FrontPage extends React.Component {
   render() {
     // const { data } = this.props
@@ -46,9 +52,4 @@ export default class FrontPage extends React.Component {
 }
 
 
-// axios.get(`https://cityenglishproject.com/class_times.json`)
-//   .then(function(response){
-//     console.log(response.data); // ex.: { user: 'Your User'}
-//     console.log(response.status); // ex.: 200
-//   });
 

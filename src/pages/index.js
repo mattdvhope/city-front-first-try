@@ -21,7 +21,7 @@ export default class FrontPage extends React.Component {
             <h1 className="has-text-weight-bold is-size-2">Latestttt Stories</h1>
           </div>
 
-          <div>
+          <div style={{ margin: '3rem auto', maxWidth: 600 }}>
             <h1>Richard Hamming on Luck</h1>
             <div>
               <p>

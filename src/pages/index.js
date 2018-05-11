@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import axios from 'axios'
 
+
 axios.get(`https://cityenglishproject.com/class_times.json`)
   .then(function(response){
     console.log(response.data); // ex.: { user: 'Your User'}
@@ -41,7 +42,7 @@ export default class FrontPage extends React.Component {
                 </p>
               </blockquote>
             </div>
-            <p>Posted April 09, 2011</p>
+            <p className="bg-success" >Posted April 09, 2011</p>
           </div>
 
           <h3><Link to="blog-index">Go to blog index</Link></h3>

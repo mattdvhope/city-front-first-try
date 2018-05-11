@@ -1,42 +1,73 @@
-import React from 'react'
-import Link from 'gatsby-link'
+import React, { Component } from 'react';
+import Link from 'gatsby-link';
 
 import github from '../img/github-icon.svg'
 import logo from '../img/logo.svg'
 
-const Navbar = () => (
-  <nav className="navbar is-transparent">
-    <div className="container">
-      <div className="navbar-brand">
-        <Link to="/" className="navbar-item">
-          <figure className="image">
-            <img src={logo} alt="Kaldi" style={{ width: '88px' }} />
-          </figure>
-        </Link>
-      </div>
-      <div className="navbar-start">
-        <Link className="navbar-item" to="/about">
-          About
-        </Link>
-        <Link className="navbar-item" to="/products">
-          Products
-        </Link>
-        <Link className="navbar-item" to="/blog-index">
-          Blog Index
-        </Link>
-      </div>
-      <div className="navbar-end">
-        <a
-          className="navbar-item"
-          href="https://github.com/AustinGreen/gatsby-netlify-cms-boilerplate"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-        
-        </a>
-      </div>
-    </div>
-  </nav>
-)
+class Navbar extends Component {
+  constructor(props) {
+	  super(props);
+	  this.toggleNavbar = this.toggleNavbar.bind(this);
+	  this.state = { collapsed: true, };
+  }
+  toggleNavbar() {
+	  this.setState({
+	  	collapsed: !this.state.collapsed,
+	  });
+  }
+  render() {
+	  const collapsed = this.state.collapsed;
+	  const classOne = collapsed ? 'collapse navbar-collapse' : 'collapse navbar-collapse show';
+	  const classTwo = collapsed ? 'navbar-toggler navbar-toggler-right collapsed' : 'navbar-toggler navbar-toggler-right';
+	  return (
+		  <nav className="navbar navbar-expand-lg navbar-dark bg-dark transparent-nav fixed-top">
+			  <div className="container">
+				  <Link className="navbar-brand" to="/">CEP</Link>
+				  <button
+				  	onClick={this.toggleNavbar}
+				  	className={`${classTwo}`}
+				  	type="button"
+				  	data-toggle="collapse"
+				  	data-target="#navbarResponsive"
+				  	aria-controls="navbarResponsive"
+				  	aria-expanded="false"
+				  	aria-label="Toggle navigation"
+				  >
+				  <span className="navbar-toggler-icon" />
+				  </button>
+				  <div className={`${classOne}`} id="navbarResponsive">
+					  <ul className="navbar-nav ml-auto">
+						  <li className="active">
+				        <Link to="/" onClick={this.toggleNavbar} className="nav-link">
+				          <figure className="image">
+				            <img src={logo} alt="Kaldi" style={{ width: '88px' }} /> 
+				          </figure>
+				        </Link>
+				      </li>
+				      <li className="nav-item active">
+				        <Link onClick={this.toggleNavbar} className="nav-link" to="/about">
+				          About
+				        </Link>
+				      </li>
+				      <li className="nav-item">
+				        <Link onClick={this.toggleNavbar} className="nav-link" to="/products">
+				          Products
+				        </Link>
+				      </li>
+				      <li className="nav-item">
+				        <Link onClick={this.toggleNavbar} className="nav-link" to="/blog-index">
+				          Blog Index
+				        </Link>
+				      </li>
+				      <li className="nav-item">
+				        <a className="nav-link disabled" href="#">Disabled</a>
+				      </li>
+					  </ul>
+				  </div>
+			  </div>
+		  </nav>
+	  );
+  }
+}
 
-export default Navbar
+export default Navbar;

@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./about-css-modules.module.css";
-console.log(styles);
 
 import Container from "../../components/container";
 

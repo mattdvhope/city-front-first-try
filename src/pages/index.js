@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import axios from 'axios'
 
-import FeaturesOfCep from '../components/features-of-cep'
+import CarouselOfCep from '../components/Carousel-of-cep'
+import FeaturesOfCep from '../components/Features-of-cep'
 
 
 axios.get(`https://enigmatic-castle-3874.herokuapp.com/class_times.json`)
@@ -49,6 +50,7 @@ export default class FrontPage extends React.Component {
 
           <h3><Link to="blog-index">Go to blog index</Link></h3>
         </div>
+        <CarouselOfCep />
         <FeaturesOfCep />
       </section>
     )

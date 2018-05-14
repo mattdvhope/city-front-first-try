@@ -1,5 +1,5 @@
 ---
-templateKey: product-page
+templateKey: product-page/index
 title: Our Coffee is here today!!
 image: /img/jumbotron.jpg
 heading: What we offer

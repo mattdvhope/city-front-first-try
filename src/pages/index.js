@@ -4,7 +4,7 @@ import Link from 'gatsby-link'
 import axios from 'axios'
 
 
-axios.get(`https://cityenglishproject.com/class_times.json`)
+axios.get(`https://enigmatic-castle-3874.herokuapp.com/class_times.json`)
   .then(function(response){
     console.log(response.data); // ex.: { user: 'Your User'}
     console.log(response.status); // ex.: 200

@@ -2,6 +2,10 @@ import React from "react";
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
+function dealWithClick() {
+  alert("The Link was Clicked");
+}
+
 export default class NavbarOnTop extends React.Component {
     render() {
     return (
@@ -21,19 +25,19 @@ export default class NavbarOnTop extends React.Component {
               <LinkContainer to="#">
                 <MenuItem divider />
               </LinkContainer>
-              <LinkContainer to="/about">
+              <LinkContainer onClick={dealWithClick} to="/about">
                 <MenuItem eventKey={2.1}>About</MenuItem>    
               </LinkContainer>
               <LinkContainer to="#">
                 <MenuItem divider />
               </LinkContainer>
-              <LinkContainer to="/products">
+              <LinkContainer onClick={dealWithClick} to="/products">
                 <MenuItem eventKey={2.2}>Products</MenuItem>    
               </LinkContainer>      
               <LinkContainer to="#">
                 <MenuItem divider />
               </LinkContainer>      
-              <LinkContainer to="/blog-index">
+              <LinkContainer onClick={dealWithClick} to="/blog-index">
                 <MenuItem eventKey={2.3}>Blog List</MenuItem>    
               </LinkContainer>      
               <LinkContainer to="#">

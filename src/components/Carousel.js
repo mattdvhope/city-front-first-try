@@ -26,17 +26,17 @@ export default class ControlledCarousel extends React.Component {
 
     return (
       <Carousel
-        activeIndex={index}
-        direction={direction}
+        // activeIndex={index}
+        // direction={direction}
         onSelect={this.handleSelect}
+        interval={7000}
       >
         <Carousel.Item>
           <Link to="/business">
             <img src="https://s3-ap-southeast-1.amazonaws.com/carouselcep/1Home-Page-Pic.jpg" className="img-responsive"/>
           </Link>
           <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h4>First slide label</h4>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -44,8 +44,7 @@ export default class ControlledCarousel extends React.Component {
             <img src="https://s3-ap-southeast-1.amazonaws.com/carouselcep/2YouCanSpeakAd.jpg" alt="Chania" />
           </Link>
           <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h4>Second slide label</h4>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -53,8 +52,7 @@ export default class ControlledCarousel extends React.Component {
             <img src="https://s3-ap-southeast-1.amazonaws.com/carouselcep/4AtYourOffice.jpg" alt="Chania" />
           </Link>
           <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            <h4>Third slide label</h4>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -62,8 +60,7 @@ export default class ControlledCarousel extends React.Component {
             <img src="https://s3-ap-southeast-1.amazonaws.com/carouselcep/5Membership.jpg" className="img-responsive" />
           </Link>
           <Carousel.Caption>
-            <h3>Fourth slide label</h3>
-            <p>Fourth Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            <h4>Fourth slide label</h4>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>

@@ -2,8 +2,9 @@ import React from "react";
 import Slider from "react-slick";
 
 
-  function dealWithClick() {
-    alert("The Link was Clicked");
+  function dealWithClick(e) {
+    console.log("The Link was Clicked");
+    e.preventDefault();
   }
 
 

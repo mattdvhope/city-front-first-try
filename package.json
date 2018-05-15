@@ -25,7 +25,6 @@
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-helmet": "^5.2.0",
-    "react-slick": "^0.23.1",
     "typography-theme-bootstrap": "^0.16.7",
     "uuid": "^3.2.1"
   },

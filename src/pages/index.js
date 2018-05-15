@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import axios from 'axios'
 
-import CarouselSlider from '../components/Carousel-slider'
 import FeaturesHere from '../components/Features_here'
 
 
@@ -20,7 +19,6 @@ export default class FrontPage extends React.Component {
 
     return (
         <div>
-          <CarouselSlider />
           <FeaturesHere />
         </div>
     )

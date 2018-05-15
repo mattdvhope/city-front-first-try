@@ -2,6 +2,11 @@ import React from "react";
 import Link from "gatsby-link";
 import { Carousel } from 'react-bootstrap';
 
+import pic1 from '../img/1Home-Page-Pic.jpg'
+import pic2 from '../img/2YouCanSpeakAd.jpg'
+import pic3 from '../img/3FreeClass.jpg'
+import pic4 from '../img/4AtYourOffice.jpg'
+
 export default class ControlledCarousel extends React.Component {
   constructor(props, context) {
     super(props, context);
@@ -33,28 +38,28 @@ export default class ControlledCarousel extends React.Component {
       >
         <Carousel.Item>
           <Link to="/about">
-            <img src="https://s3-ap-southeast-1.amazonaws.com/carouselcep/1Home-Page-Pic.jpg" className="img-responsive"/>
+            <img src={pic1}/>
           </Link>
           <Carousel.Caption>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <Link to="/products">
-            <img src="https://s3-ap-southeast-1.amazonaws.com/carouselcep/2YouCanSpeakAd.jpg" alt="Chania" />
+            <img src={pic2}/>
           </Link>
           <Carousel.Caption>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <Link to="/about">
-            <img src="https://s3-ap-southeast-1.amazonaws.com/carouselcep/4AtYourOffice.jpg" alt="Chania" />
+            <img src={pic3}/>
           </Link>
           <Carousel.Caption>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <Link to="/products">
-            <img src="https://s3-ap-southeast-1.amazonaws.com/carouselcep/5Membership.jpg" className="img-responsive" />
+            <img src={pic4}/>
           </Link>
           <Carousel.Caption>
           </Carousel.Caption>

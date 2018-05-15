@@ -11,7 +11,7 @@ export default class CarouselSlider extends React.Component {
       speed: 700,
       slidesToShow: 1,
       slidesToScroll: 1,
-      pauseOnHover: false,
+      // pauseOnHover: false,
       cssEase: "linear"
     };
     return (

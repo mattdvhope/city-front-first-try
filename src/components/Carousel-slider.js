@@ -1,6 +1,13 @@
 import React from "react";
 import Slider from "react-slick";
 
+
+  function dealWithClick() {
+    alert("The Link was Clicked");
+  }
+
+
+
 export default class CarouselSlider extends React.Component {
   render() {
     var settings = {
@@ -18,9 +25,11 @@ export default class CarouselSlider extends React.Component {
       <div className="dog-food">
         <Slider {...settings}>
           <div>
-            <a id="general-schedule" className="modal-initiator"  href="#" data-toggle="modal" data-target="#applicationmodal">
-              <img src="https://s3-ap-southeast-1.amazonaws.com/carouselcep/1Home-Page-Pic.jpg" className="img-responsive" />
-            </a>
+              <img
+                src="https://s3-ap-southeast-1.amazonaws.com/carouselcep/1Home-Page-Pic.jpg"
+                className="img-responsive"
+                onClick={dealWithClick}
+                />
           </div>
           <div>
             <a className="modal-initiator" href="#" data-toggle="modal" data-target="#applicationmodal">

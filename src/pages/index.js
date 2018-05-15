@@ -4,7 +4,7 @@ import Link from 'gatsby-link'
 import axios from 'axios'
 
 import ControlledCarousel from '../components/Carousel'
-import FeaturesHere from '../components/Features_here'
+import WelcomeCaption from '../components/Welcome-caption'
 
 
 axios.get(`https://enigmatic-castle-3874.herokuapp.com/class_times.json`)
@@ -18,6 +18,7 @@ export default class FrontPage extends React.Component {
     return (
         <div>
           <ControlledCarousel />
+          <WelcomeCaption />
         </div>
     )
   }

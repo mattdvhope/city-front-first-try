@@ -32,28 +32,28 @@ export default class ControlledCarousel extends React.Component {
         interval={7000}
       >
         <Carousel.Item>
-          <Link to="/business">
+          <Link to="/about">
             <img src="https://s3-ap-southeast-1.amazonaws.com/carouselcep/1Home-Page-Pic.jpg" className="img-responsive"/>
           </Link>
           <Carousel.Caption>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          <Link to="/business">
+          <Link to="/products">
             <img src="https://s3-ap-southeast-1.amazonaws.com/carouselcep/2YouCanSpeakAd.jpg" alt="Chania" />
           </Link>
           <Carousel.Caption>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          <Link to="/business">
+          <Link to="/about">
             <img src="https://s3-ap-southeast-1.amazonaws.com/carouselcep/4AtYourOffice.jpg" alt="Chania" />
           </Link>
           <Carousel.Caption>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          <Link to="/business">
+          <Link to="/products">
             <img src="https://s3-ap-southeast-1.amazonaws.com/carouselcep/5Membership.jpg" className="img-responsive" />
           </Link>
           <Carousel.Caption>

@@ -4,7 +4,7 @@ import Link from 'gatsby-link'
 import axios from 'axios'
 
 import CarouselSlider from '../components/Carousel-slider'
-// import FeaturesOfCep from '../components/Features-of-cep'
+import FeaturesOfCep from '../components/Features-of-cep'
 
 
 axios.get(`https://enigmatic-castle-3874.herokuapp.com/class_times.json`)
@@ -21,6 +21,7 @@ export default class FrontPage extends React.Component {
     return (
         <div>
           <CarouselSlider />
+          <FeaturesOfCep />
         </div>
     )
   }

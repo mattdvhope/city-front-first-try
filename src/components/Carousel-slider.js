@@ -6,9 +6,9 @@ export default class CarouselSlider extends React.Component {
     var settings = {
       dots: true,
       infinite: true,
-      autoplay: true,
-      autoplaySpeed: 7000,
-      speed: 700,
+      // autoplay: true,
+      // autoplaySpeed: 7000,
+      speed: 400,
       slidesToShow: 1,
       slidesToScroll: 1,
       // pauseOnHover: false,

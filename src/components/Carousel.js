@@ -2,6 +2,8 @@ import React from "react";
 import Link from "gatsby-link";
 import { Carousel } from 'react-bootstrap';
 
+import '../sass/carousel.sass'
+
 import pic1 from '../img/1Home-Page-Pic.jpg'
 import pic2 from '../img/2YouCanSpeakAd.jpg'
 import pic3 from '../img/3FreeClass.jpg'

@@ -18,9 +18,15 @@ export default class NavbarOnTop extends React.Component {
               <NavItem eventKey={1}>Home</NavItem>
             </LinkContainer>
             <NavDropdown eventKey={2} title="Items to Choose" id="basic-nav-dropdown">
+              <LinkContainer to="#">
+                <MenuItem divider />
+              </LinkContainer>
               <LinkContainer to="/about">
                 <MenuItem eventKey={2.1}>About</MenuItem>    
-              </LinkContainer>      
+              </LinkContainer>
+              <LinkContainer to="#">
+                <MenuItem divider />
+              </LinkContainer>
               <LinkContainer to="/products">
                 <MenuItem eventKey={2.2}>Products</MenuItem>    
               </LinkContainer>      
@@ -29,6 +35,9 @@ export default class NavbarOnTop extends React.Component {
               </LinkContainer>      
               <LinkContainer to="/blog-index">
                 <MenuItem eventKey={2.3}>Blog List</MenuItem>    
+              </LinkContainer>      
+              <LinkContainer to="#">
+                <MenuItem divider />
               </LinkContainer>      
             </NavDropdown>  
             <LinkContainer to="/Tags">

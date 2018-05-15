@@ -2,14 +2,14 @@ const _ = require('lodash')
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 
-exports.modifyWebpackConfig = ({ config, stage }) => {
-  if (stage === "build-html") {
-    config.loader("null", {
-      test: /bad-module/,
-      loader: "null-loader",
-    });
-  }
-};
+// exports.modifyWebpackConfig = ({ config, stage }) => {
+//   if (stage === "build-html") {
+//     config.loader("null", {
+//       test: /bad-module/,
+//       loader: "null-loader",
+//     });
+//   }
+// };
 
 exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage } = boundActionCreators

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import axios from 'axios'
 
+import ControlledCarousel from '../components/Carousel'
 import FeaturesHere from '../components/Features_here'
 
 
@@ -14,12 +15,9 @@ axios.get(`https://enigmatic-castle-3874.herokuapp.com/class_times.json`)
 
 export default class FrontPage extends React.Component {
   render() {
-    // const { data } = this.props
-    // const { edges: posts } = data.allMarkdownRemark
-
     return (
         <div>
-          <FeaturesHere />
+          <ControlledCarousel />
         </div>
     )
   }

@@ -8,7 +8,7 @@ import Slider from "react-slick";
 
 
 
-export default class CarouselSlider extends React.Component {
+export default class CarouselSlider3 extends React.Component {
   render() {
     var settings = {
       dots: true,

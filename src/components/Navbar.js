@@ -1,81 +1,45 @@
-import React, { Component } from 'react';
-import Link from 'gatsby-link';
+import React from "react";
+import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
-import github from '../img/github-icon.svg'
-import logo from '../img/logo.svg'
-
-class Navbar extends Component {
-  constructor(props) {
-	  super(props);
-	  this.toggleNavbar = this.toggleNavbar.bind(this);
-	  this.onItemClick = this.onItemClick.bind(this);
-	  this.state = { collapsed: true, };
+export default class NavbarOnTop extends React.Component {
+    render() {
+    return (
+      <Navbar inverse collapseOnSelect fixedTop>
+        <Navbar.Header>
+          <Navbar.Brand>
+            <a href="/">CEP</a>
+          </Navbar.Brand>
+          <Navbar.Toggle />
+        </Navbar.Header>
+        <Navbar.Collapse>
+          <Nav pullRight>
+            <LinkContainer to="/">
+              <NavItem eventKey={1}>Home</NavItem>
+            </LinkContainer>
+            <NavDropdown eventKey={2} title="Items to Choose" id="basic-nav-dropdown">
+              <LinkContainer to="/about">
+                <MenuItem eventKey={2.1}>About</MenuItem>    
+              </LinkContainer>      
+              <LinkContainer to="/products">
+                <MenuItem eventKey={2.2}>Products</MenuItem>    
+              </LinkContainer>      
+              <LinkContainer to="#">
+                <MenuItem divider />
+              </LinkContainer>      
+              <LinkContainer to="/blog-index">
+                <MenuItem eventKey={2.3}>Blog List</MenuItem>    
+              </LinkContainer>      
+            </NavDropdown>  
+            <LinkContainer to="/Tags">
+              <NavItem eventKey={3}>Tags</NavItem>
+            </LinkContainer>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+    );
   }
-  toggleNavbar() {
-	  this.setState({
-	  	collapsed: !this.state.collapsed,
-	  });
-  }
-  onItemClick(event) {
-    this.setState({ selectedItem: event.currentTarget.dataset.id });
-  }
-  render() {
-	  const collapsed = this.state.collapsed;
-	  const classOne = collapsed ? 'collapse navbar-collapse' : 'collapse navbar-collapse show';
-	  const classTwo = collapsed ? 'navbar-toggler navbar-toggler-right collapsed' : 'navbar-toggler navbar-toggler-right';
-	  return (
-		  <nav className="navbar navbar-expand-lg navbar-dark bg-dark text-white transparent-nav fixed-top">
-			  <div className="container">
-				  <Link className="navbar-brand" to="/">CEP</Link>
-				  <button
-				  	onClick={this.toggleNavbar}
-				  	className={`${classTwo}`}
-				  	type="button"
-				  	data-toggle="collapse"
-				  	data-target="#navbarResponsive"
-				  	aria-controls="navbarResponsive"
-				  	aria-expanded="false"
-				  	aria-label="Toggle navigation">
-				      <span className="navbar-toggler-icon" />
-				  </button>
-				  <div className={`${classOne}`} id="navbarResponsive">
-					  <ul className="navbar-nav ml-auto">
-					    <li onClick={this.onItemClick} data-id="1" className={this.state.selectedItem == 1 ? "on" : "off"}>
-				          <Link to="/" onClick={this.toggleNavbar} className="nav-link">
-				            <figure className="image">
-				              <img src={logo} alt="Kaldi" style={{ width: '88px' }} /> 
-				            </figure>
-				          </Link>
-				        </li>
-			            <hr />
-		                <li onClick={this.onItemClick} data-id="2" className={this.state.selectedItem == 2 ? "on" : "off"}>
-				          <Link onClick={this.toggleNavbar} className="nav-link" to="/about">
-				            About
-				          </Link>
-				        </li>
-			            <hr />
-				        <li onClick={this.onItemClick} data-id="3" className={this.state.selectedItem == 3 ? "on" : "off"}>
-				          <Link onClick={this.toggleNavbar} className="nav-link" to="/products">
-				            Products
-				          </Link>
-				        </li>
-			            <hr />
-				        <li onClick={this.onItemClick} data-id="4" className={this.state.selectedItem == 4 ? "on" : "off"}>
-				          <Link onClick={this.toggleNavbar} className="nav-link" to="/blog-index">
-				            Blog Index
-				          </Link>
-				        </li>
-					  </ul>
-				  </div>
-			  </div>
-		  </nav>
-	  );
-  }
-
 }
 
-function myFunction(event) { 
-  alert(event.target);
-}
 
-export default Navbar;
+

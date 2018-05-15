@@ -36,7 +36,6 @@ export default class ControlledCarousel extends React.Component {
             <img src="https://s3-ap-southeast-1.amazonaws.com/carouselcep/1Home-Page-Pic.jpg" className="img-responsive"/>
           </Link>
           <Carousel.Caption>
-            <h4>First slide label</h4>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -44,7 +43,6 @@ export default class ControlledCarousel extends React.Component {
             <img src="https://s3-ap-southeast-1.amazonaws.com/carouselcep/2YouCanSpeakAd.jpg" alt="Chania" />
           </Link>
           <Carousel.Caption>
-            <h4>Second slide label</h4>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -52,7 +50,6 @@ export default class ControlledCarousel extends React.Component {
             <img src="https://s3-ap-southeast-1.amazonaws.com/carouselcep/4AtYourOffice.jpg" alt="Chania" />
           </Link>
           <Carousel.Caption>
-            <h4>Third slide label</h4>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -60,7 +57,6 @@ export default class ControlledCarousel extends React.Component {
             <img src="https://s3-ap-southeast-1.amazonaws.com/carouselcep/5Membership.jpg" className="img-responsive" />
           </Link>
           <Carousel.Caption>
-            <h4>Fourth slide label</h4>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>

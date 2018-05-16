@@ -1,0 +1,22 @@
+.title {
+	color: #fff;
+	font-size: 36px;
+	margin-top: 90px;
+}
+
+
+@media only screen and (min-width:1170px){
+  .belowCircle {
+    padding-right: 90px;
+  }
+}
+@media only screen and (max-device-width:1170px){
+  .belowCircle {
+    padding-right: 40px;
+  }
+}
+
+.textColor {
+	color: #fff;
+	font-size: 26px
+}

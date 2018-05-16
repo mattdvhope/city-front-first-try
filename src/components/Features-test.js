@@ -20,7 +20,7 @@ export default class FeaturesTest extends Component {
 
     return (
     	<div className="container-full">
-	    	<Grid fluid >
+	    	<Grid>
 			    <Row className="show-grid">
 			      <Col xs={12} sm={4}>
 			        <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/City+Talk+Class.jpg" alt="City Talk Class" align="middle" className="img-responsive" />

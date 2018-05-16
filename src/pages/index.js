@@ -17,7 +17,7 @@ axios.get(`https://enigmatic-castle-3874.herokuapp.com/class_times.json`)
 export default class FrontPage extends React.Component {
   render() {
     return (
-        <div className="container-full">
+        <div>
           <ControlledCarousel />
           <WelcomeCaption />
           <FeaturesHere />

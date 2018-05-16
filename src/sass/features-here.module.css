@@ -1,22 +1,19 @@
-.title {
+.subTitle {
 	color: #fff;
-	font-size: 36px;
-	margin-top: 90px;
+	font-size: 26px;
 }
 
+.text {
+	color: #fff;
+	font-size: 18px;
+}
 
-@media only screen and (min-width:1170px){
+/*(Below) Kept to reference its syntex...*/
+/*
+@media only screen and (max-device-width:600px){
   .belowCircle {
-    padding-right: 90px;
+    margin-right: 155px;
+    margin-left: 155px;
   }
 }
-@media only screen and (max-device-width:1170px){
-  .belowCircle {
-    padding-right: 40px;
-  }
-}
-
-.textColor {
-	color: #fff;
-	font-size: 26px
-}
+*/

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Link from 'gatsby-link';
 
 import '../sass/welcome.sass'
+import welcomeWide from '../img/Welcome-wide.jpg'
+import welcomeMobile from '../img/Welcome-mobile.jpg'
 
 export default class WelcomeCaption extends Component {
 
@@ -18,7 +20,8 @@ export default class WelcomeCaption extends Component {
   handleResize = () => this.setState({
     windowHeight: window.innerHeight,
     windowWidth: window.innerWidth,
-    imageChosen: window.innerWidth > 550 ? "https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+wide.jpg" : "https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+mobile.jpg"
+    // imageChosen: window.innerWidth > 550 ? "https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+wide.jpg" : "https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+mobile.jpg"
+    imageChosen: window.innerWidth > 550 ? welcomeWide : welcomeMobile
   });
 
   componentDidMount() {

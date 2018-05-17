@@ -21,8 +21,8 @@ const TitleContainer = styled.div`
 
 const SubTitleContainer = styled.div`
 	color: #2d3179;
-	margin-right: 4%;
-	margin-left: 4%;
+	margin-right: 20px;
+	margin-left: 30px;
 `;
 
 const YouCanSpeakLink = styled(Link)`

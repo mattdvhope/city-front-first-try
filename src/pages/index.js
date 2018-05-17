@@ -6,6 +6,7 @@ import axios from 'axios'
 import ControlledCarousel from '../components/Carousel'
 import WelcomeCaption from '../components/Welcome-caption'
 import FeaturesHere from '../components/Features-here'
+import Member from '../components/Member'
 
 
 axios.get(`https://enigmatic-castle-3874.herokuapp.com/class_times.json`)
@@ -21,6 +22,7 @@ export default class FrontPage extends React.Component {
           <ControlledCarousel />
           <WelcomeCaption />
           <FeaturesHere />
+          <Member />
         </div>
     )
   }

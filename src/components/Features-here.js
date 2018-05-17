@@ -19,43 +19,28 @@ const TitleContainer = styled.div`
 `;
 
 const Avatar = styled.img`
+  height: auto;
+  border-radius: 50%;
+	display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+
   @media (min-width: 767px) {
-	  height: auto;
 	  max-width: 90%;
-	  border-radius: 50%;
+	  width: 100%
   }
   @media (max-width: 767px) {
   	margin-top: 34px;
-	  height: auto;
 	  max-width: 35%;
-	  border-radius: 50%;
-
-		display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
   }
   @media (max-width: 667px) {
   	margin-top: 34px;
-	  height: auto;
 	  max-width: 40%;
-	  border-radius: 50%;
-
-		display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
   }
   @media (max-width: 500px) {
   	margin-top: 34px;
-	  height: auto;
 	  max-width: 50%;
-	  border-radius: 50%;
-
-		display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
   }
 `;
 
@@ -84,7 +69,7 @@ export default () => (
 					<h1 className="text-center">Features</h1>
 				</TitleContainer>
 			</Row>
-			<Row className="show-grid">
+			<Row>
 				<Col xs={12} sm={4}>
 					<FirstAvatar src={cityTalkClass} alt="" />
 					<TextContainer>

@@ -3,7 +3,6 @@ import Link from "gatsby-link";
 import styled from "styled-components";
 import { Grid, Row, Col } from 'react-bootstrap';
 
-import styles from "../sass/member.module.css";
 import cityTalkClass from '../img/City-Talk-Class.jpg'
 import engConvParnters from '../img/English-Conversation-Partners.jpg'
 import convGroups from '../img/Conversation-Groups.jpg'

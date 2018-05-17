@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "gatsby-link";
 import styled from "styled-components";
 import { Grid, Row, Col } from 'react-bootstrap';
 
@@ -13,9 +14,21 @@ const MemberContainer = styled.div`
 `
 
 const TitleContainer = styled.div`
-	margin-right: 20px;
-	margin-left: 20px;
+	color: #8BC34A;
+	margin-right: 4%;
+	margin-left: 4%;
 `;
+
+const SubTitleContainer = styled.div`
+	color: #2d3179;
+	margin-right: 4%;
+	margin-left: 4%;
+`;
+
+const YouCanSpeakLink = styled(Link)`
+  color: #8BC34A;
+  font-weight: bold;
+`; 
 
 const Avatar = styled.img`
   height: auto;
@@ -23,24 +36,40 @@ const Avatar = styled.img`
 	display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 80%;
+
+  @media (min-width: 1087px) {
+	  margin-top: 7%;
+  }
+  @media (max-width: 1087px) {
+	  margin-top: 30%;
+  }
 
   @media (min-width: 767px) {
-	  max-width: 90%;
-	  width: 100%
+	  max-width: 95%;
+	  width: 100%;
   }
   @media (max-width: 767px) {
+	  margin-top: 0%;
 	  max-width: 55%;
   }
   @media (max-width: 667px) {
+	  margin-top: 0%;
 	  max-width: 60%;
   }
   @media (max-width: 500px) {
+	  margin-top: 0%;
 	  max-width: 70%;
   }
 `;
 
 const FirstAvatar = Avatar.extend`
+  @media (min-width: 1087px) {
+	  margin-top: 2%;
+  }
+  @media (max-width: 1087px) {
+	  margin-top: 9%;
+  }
+
   @media (max-width: 767px) {
   	margin-top: 0px;
   }
@@ -52,9 +81,19 @@ const FirstAvatar = Avatar.extend`
   }
 `
 
+const ListContainer = styled.div`
+	width: 95%;
+	color: #2d3179;
+`
+
 const TextContainer = styled.div`
 	padding-left: 1em;
 	width: 95%;
+	color: #2d3179;
+`
+
+const TextContent = styled.div`
+	font-size: 20px;
 `
 
 export default () => (
@@ -64,6 +103,9 @@ export default () => (
 				<TitleContainer>
 					<h1 className="text-center">Become a City English Project Network Member!</h1>
 				</TitleContainer>
+				<SubTitleContainer>
+					<h3>Becoming a member of the City English Project is Easy! Everyone who sucessfully completes our <YouCanSpeakLink to="/about">"You Can Speak!"</YouCanSpeakLink> conversational English class will be awarded a free one-year membership to our network.  Network members will receive the following privileges:</h3>
+				</SubTitleContainer>
 			</Row>
 			<hr/>
 			<hr/>
@@ -72,10 +114,14 @@ export default () => (
 					<FirstAvatar src="https://s3-ap-southeast-1.amazonaws.com/beamember/Membership4Web.jpg" alt="" />
 				</Col>
 				<Col sm={6} xs={12}>
-					<TextContainer>
-						<h4 className={styles.subTitle}>"You Can Speak!"  Conversational English Class</h4>
-						<p className={styles.text}>Our "You Can Speak!" conversational English, culture and worldview class is a fun and interactive way to build confidence and learn to speak English with greater clarity. We offer beginner through intermediate level classes taught by TESOL certified native English speakers. <a className="modal-initiator non-summer-university" href="#" data-toggle="modal" data-target="#applicationmodal">Click here to sign up for a class!</a></p>
-					</TextContainer>
+					<ListContainer>
+						<ul>
+						  <li><h3>Invitations to Free English events and activities</h3></li>
+						  <li><h3>Affordable English classes and seminars</h3></li>
+						  <li><h3>Free conversational English worldview class (Perspectives on the world and life) and workbook</h3></li>
+						  <li><h3>Ongoing opportunites to build relationships with English speakers</h3></li>
+						</ul>
+					</ListContainer>
 				</Col>
 			</Row>
 			<hr/>
@@ -86,8 +132,8 @@ export default () => (
 				</Col>
 				<Col sm={6} xs={12}>
 					<TextContainer>
-						<h4 className={styles.subTitle}>Online Conversation Partnerships with Native English Speakers</h4>
-						<p className={styles.text}>The best way to become a better English speaker is to speak with native speakers on a regular basis. Our network offers members opportunities for online, weekly, face-to-face Skype partnerships with native English speakers who can help you advance quickly. This partnership will be available to you after you complete the "You Can Speak" class.</p>
+						<h3>A Holistic Model</h3>
+						<TextContent>The heart of what we do is conversational English. However, everyone knows that learning English is not enough to help you excel in cross-cultural business and personal relationships. That's why our model integrates basic elements of culture and worldview into our classes. For example, in our introductory City Talk class you will learn basic tips like how to shake hands and introduce yourself in a culturally appropriate way. You will also learn an easy-to-remember outline that gives you a basic understanding of the Christian worldview - a worldview that impacts, at least in some ways, over two billion people around the world. Our online network will also offer additional classes on culture and global worldviews. We want to do all we can to equip you for a successful life and career!</TextContent>
 					</TextContainer>
 				</Col>
 			</Row>
@@ -99,11 +145,14 @@ export default () => (
 				</Col>
 				<Col sm={6} xs={12}>
 					<TextContainer>
-						<h4 className={styles.subTitle}>Classes &amp; Activities!</h4>
-						<p className={styles.text}>Interested in practicing your English in a casual and fun environment? We host additional classes and activities that provide opportunities for relaxed, natural conversations with native English speakers. Follow us on social media for the dates of upcoming events.</p>
+						<h3>Serving Thai People</h3>
+						<TextContent>We understand that studying English (especially with native English speakers) can be VERY expensive in Thailand.  That is one of the main reasons we started the project.  One question we often get asked is, "How are your English classes and online partnerships so affordable?" We are able to make our classes and partnerships affordable for two reasons.  First, we are a non-profit project. We exist to serve Thai people, not make money. All income is used to support and expand our services to you. Second, our TESOL certified English teachers and conversation partners are all volunteers. They are Christians who volunteer their time to serve and help the people of Thailand. They come from a <YouCanSpeakLink to="/products">long history of Christian volunteers</YouCanSpeakLink> who have loved and served Thai people.</TextContent>
 					</TextContainer>
 				</Col>
 			</Row>
 		</Grid>
 	</MemberContainer>
 );
+
+
+

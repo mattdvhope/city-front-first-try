@@ -8,9 +8,14 @@ import cityScapeMedium from '../img/City-scape-medium.jpg'
 import cityScapeSmaller from '../img/City-scape-smaller.jpg'
 
 const FooterContainer = styled.div`
-  height: 1400px
+  @media (min-width: 1070px) {
+    height: 700px;
+  }
+  @media (max-width: 1070px) {
+    height: 1000px;
+  }
   background-repeat:no-repeat;
-  background-position:center;
+  background-position:top;
 `
 
 const TitleContainer = styled.div`
@@ -96,10 +101,10 @@ const TextContent = styled.div`
   font-size: 20px;
 `
 
-function imageAccordingToScreenSize(win) {
-  if (win.innerWidth > 1260) {
+function imageAccordingToWindowWidth(width) {
+  if (width > 1070) {
     return cityScape;
-  } else if (win.innerWidth > 767 && win.innerWidth < 1260) {
+  } else if (width > 550 && width < 1070) {
     return cityScapeMedium;
   } else {
     return cityScapeSmaller;
@@ -116,7 +121,7 @@ export default class Footer extends Component {
   }
 
   handleResize = () => this.setState({
-    imageChosen: imageAccordingToScreenSize(window)
+    imageChosen: imageAccordingToWindowWidth(window.innerWidth)
   });
 
   componentDidMount() {
@@ -130,34 +135,21 @@ export default class Footer extends Component {
 
   render() {
     return (
-      <FooterContainer style={{backgroundImage: `url('${this.state.imageChosen}')`}}>
+      <FooterContainer style={{backgroundImage: `url('${this.state.imageChosen}')`, backgroundSize: `cover`}}>
 
-        <div className="container-full">
-          <div className="row">
-            <div className="welcome-screen">
-              <div className="welcome-caption-content">
+        <Grid fluid>
+          <Row>
+            <TitleContainer>
+              <h1 className="text-center">Become a City English Project Network Member!</h1>
+            </TitleContainer>
+            <SubTitleContainer>
+              <h3>Becoming a member of the City English Project is Easy! Everyone who sucessfully completes our <YouCanSpeakLink to="/about">"You Can Speak!"</YouCanSpeakLink> conversational English class will be awarded a free one-year membership to our network.  Network members will receive the following privileges:</h3>
+            </SubTitleContainer>
+          </Row>
+        </Grid>
 
-                <Grid fluid>
-                  <Row>
-                    <TitleContainer>
-                      <h1 className="text-center">Become a City English Project Network Member!</h1>
-                    </TitleContainer>
-                    <SubTitleContainer>
-                      <h3>Becoming a member of the City English Project is Easy! Everyone who sucessfully completes our <YouCanSpeakLink to="/about">"You Can Speak!"</YouCanSpeakLink> conversational English class will be awarded a free one-year membership to our network.  Network members will receive the following privileges:</h3>
-                    </SubTitleContainer>
-                  </Row>
-                </Grid>
-
-              </div>
-            </div>
-          </div>
-        </div>
 
       </FooterContainer>
-
-
-
-
     )
   }
 }

@@ -3,15 +3,11 @@ const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 
 
-// // to prevent 'window not defined' in Welcome-caption.js
-// exports.modifyWebpackConfig = ({ config, stage }) => {
-//   if (stage === "build-html") {
-//     config.loader("null", {
-//       test: /bad-module/,
-//       loader: "null-loader",
-//     });
-//   }
-// };
+exports.modifyWebpackConfig = ({ config, stage }) => {
+  if (stage === "build-html") {
+    config.loader("null", { test: /mdbreact/, loader: "null-loader" });
+  }
+};
 
 
 exports.createPages = ({ boundActionCreators, graphql }) => {

@@ -15,6 +15,8 @@ const FeaturesContainer = styled.div`
 
 const TitleContainer = styled.div`
 		margin-bottom: 30px;
+		margin-left: auto;
+		margin-right: auto;
 		color: #fff;
 `;
 
@@ -66,7 +68,7 @@ export default () => (
 		<Grid fluid>
 			<Row>
 				<TitleContainer>
-					<h1 className="text-center">Features</h1>
+					<h1>Features</h1>
 				</TitleContainer>
 			</Row>
 			<Row>

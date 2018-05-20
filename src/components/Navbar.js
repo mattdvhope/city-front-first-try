@@ -1,54 +1,70 @@
-import React from "react";
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
+import React, { Component } from 'react';
+import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'mdbreact';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-export default class NavbarOnTop extends React.Component {
+export default class NavbarFeatures extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            collapse: false,
+            isWideEnough: false,
+            dropdownOpen: false
+        };
+    this.onClick = this.onClick.bind(this);
+    this.toggle = this.toggle.bind(this);
+    }
+
+    onClick(){
+        this.setState({
+            collapse: !this.state.collapse,
+        });
+    }
+
+    toggle() {
+        this.setState({
+            dropdownOpen: !this.state.dropdownOpen
+        });
+    }
+
     render() {
-    return (
-      <Navbar inverse collapseOnSelect fixedTop>
-        <Navbar.Header>
-          <Navbar.Brand>
-            <a href="/">CEP</a>
-          </Navbar.Brand>
-          <Navbar.Toggle />
-        </Navbar.Header>
-        <Navbar.Collapse>
-          <Nav pullRight>
-            <LinkContainer to="/">
-              <NavItem eventKey={1}>Home</NavItem>
-            </LinkContainer>
-            <NavDropdown eventKey={2} title="Items to Choose" id="basic-nav-dropdown">
-              <LinkContainer to="#">
-                <MenuItem divider />
-              </LinkContainer>
-              <LinkContainer to="/about">
-                <MenuItem eventKey={2.1}>About</MenuItem>    
-              </LinkContainer>
-              <LinkContainer to="#">
-                <MenuItem divider />
-              </LinkContainer>
-              <LinkContainer to="/products">
-                <MenuItem eventKey={2.2}>Products</MenuItem>    
-              </LinkContainer>      
-              <LinkContainer to="#">
-                <MenuItem divider />
-              </LinkContainer>      
-              <LinkContainer to="/blog-index">
-                <MenuItem eventKey={2.3}>Blog List</MenuItem>    
-              </LinkContainer>      
-              <LinkContainer to="#">
-                <MenuItem divider />
-              </LinkContainer>      
-            </NavDropdown>  
-            <LinkContainer to="/Tags">
-              <NavItem eventKey={3}>Tags</NavItem>
-            </LinkContainer>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
-    );
-  }
+      return (
+        <Navbar color="indigo" dark expand="md"  fixed="top" scrolling>
+          <NavbarBrand href="/">
+            <strong>Navbar</strong>
+          </NavbarBrand>
+          { !this.state.isWideEnough && <NavbarToggler onClick = { this.onClick } />}
+          <Collapse isOpen = { this.state.collapse } navbar>
+            <NavbarNav right>
+              <NavItem active>
+                <NavLink to="#">Home</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink to="#">Features</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink to="#">Pricing</NavLink>
+              </NavItem>
+              <NavItem>
+                <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+                <DropdownToggle nav caret>Dropdown</DropdownToggle>
+                <DropdownMenu>
+                  <DropdownItem href="#">Action</DropdownItem>
+                  <DropdownItem href="#">Another Action</DropdownItem>
+                  <DropdownItem href="#">Something else here</DropdownItem>
+                  <DropdownItem href="#">Something else here</DropdownItem>
+                </DropdownMenu>
+                </Dropdown>
+              </NavItem>
+            </NavbarNav>
+            <NavbarNav right>
+              <NavItem>
+                <form className="form-inline md-form mt-0">
+                  <input className="form-control mr-sm-2 mb-0 text-white" type="text" placeholder="Search" aria-label="Search"/>
+                </form>
+              </NavItem>
+            </NavbarNav>
+          </Collapse>
+        </Navbar>
+        );
+    }
 }
-
-
-

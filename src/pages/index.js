@@ -9,6 +9,10 @@ import FeaturesHere from '../components/Features-here'
 import Member from '../components/Member'
 import Footer from '../components/Footer'
 
+import ModalPage from '../components/ModalPage'
+import CarouselPage from '../components/CarouselPage'
+
+
 
 axios.get(`https://enigmatic-castle-3874.herokuapp.com/class_times.json`)
   .then(function(response){
@@ -20,11 +24,17 @@ export default class FrontPage extends React.Component {
   render() {
     return (
         <div>
-          <ControlledCarousel />
+          <CarouselPage />
           <WelcomeCaption />
           <FeaturesHere />
           <Member />
           <Footer />
+
+        {/* 
+          <ControlledCarousel />
+
+          <ModalPage />
+         */}
         </div>
     )
   }

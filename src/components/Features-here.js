@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Grid, Row, Col } from 'reactstrap';
 
 import styles from "../sass/features-here.module.css";
 import cityTalkClass from '../img/City-Talk-Class.jpg'

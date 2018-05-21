@@ -1,13 +1,73 @@
-#___gatsby > div.container-full > nav
-  background-color: #2d3179
+html > body > #___gatsby > div.container-full > nav
+  background-color: #2d3179 !important
 
-div > .navbar-inverse
-  background-color: #2d3179
+// logo on the top left
+html > body > #___gatsby > div.container-full > nav > a > img
+  display: inline
+  width: 55px
+  margin-top: -27px
+  margin-left: 10px
+  border-radius: 50%
+  position: fixed
 
-div > .navbar-inverse .navbar-nav > li > a
-  color: #fff
-  background-color: #2d3179
+// text color on navbar
+.nav-link
+  color: #fff !important
 
-div > .navbar-inverse .navbar-nav > li.active > a
-  background-color: #2d3179
+// text color in dropdown links
+.dropdown-item > .nav-link
+  color: rgba(0,0,0,.5) !important
+
+// flags
+.nav-item > .nav-link > img
+  width: 45px
+  margin-top: -9px
+  margin-left: 4px
+  position: fixed
+
+// .nav-item > .nav-link
+//   @media screen and (min-width: 767px)
+// 	margin-left: 0px
+// 	margin-right: 0px
+//   @media screen and (max-width: 767px)
+// 	margin-left: auto
+// 	margin-right: auto
+
+div > div > div > div.container-full > div.row > div.welcome-screen > .welcome-caption-content
+  position: absolute
+  top: 35%
+  text-align: left
+  margin-left: 2%
+  margin-top: -0.7em
+  left: 33%
+  width: 55%
+  @media screen and (min-width: 1020px)
+    font-size: 130%
+  @media screen and (max-width: 1020px)
+    font-size: 120%
+  @media screen and (max-width: 920px)
+    font-size: 110%
+  @media screen and (max-width: 850px)
+    font-size: 100%
+  @media screen and (max-width: 740px)
+    font-size: 93%
+  @media screen and (max-width: 695px)
+    font-size: 90%
+  @media screen and (max-width: 660px)
+    font-size: 85%
+  @media screen and (max-width: 625px)
+    font-size: 80%
+  @media screen and (max-width: 585px)
+    font-size: 75%
+  @media screen and (max-width: 550px)
+    left: 4%
+    font-size: 120%
+    margin-left: 4%
+    width: 85%
+  @media screen and (max-width: 390px)
+    font-size: 115%
+  @media screen and (max-width: 360px)
+    font-size: 110%
+  @media screen and (max-width: 340px)
+    font-size: 100%
 

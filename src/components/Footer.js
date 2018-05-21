@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Link from 'gatsby-link';
 import styled from "styled-components";
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Grid, Row, Col } from 'reactstrap';
 
 import styles from "../sass/footer.module.css";
 import cityScape from '../img/City-scape.jpg'

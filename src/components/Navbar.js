@@ -1,8 +1,8 @@
 import React from "react";
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
+import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'reactstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
-export default class NavbarOnTo extends React.Component {
+export default class NavbarOnTop extends React.Component {
     render() {
     return (
       <Navbar inverse collapseOnSelect fixedTop>

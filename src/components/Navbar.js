@@ -28,7 +28,6 @@ export default class NavbarOnTop extends React.Component {
           <Navbar.Brand>
             <div><a href="/"><img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP+logo+small.jpg" alt="logo" className="img-responsive" /></a></div>
           </Navbar.Brand>
-
         {/* 
           <button onClick={this.toggleNavbar} type="button" className={`${classOne}`}>
             <span className="sr-only">Toggle navigation</span>
@@ -37,9 +36,9 @@ export default class NavbarOnTop extends React.Component {
             <span className="icon-bar"></span>
           </button>
         */}
-
           <Navbar.Toggle />
         </Navbar.Header>
+        
         <Navbar.Collapse>
           <ul className="nav navbar-nav navbar-right">
             <li>
@@ -87,12 +86,8 @@ export default class NavbarOnTop extends React.Component {
                 <MenuItem divider />
               </LinkContainer>      
             </NavDropdown>
-
           </Nav>
-
         </Navbar.Collapse>
-
-
       </Navbar>
     );
   }

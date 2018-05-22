@@ -36,11 +36,6 @@ export default class ModalExample extends Component {
 
     return (
       <span>
-    {/* 
-        <Button bsStyle="primary" bsSize="large" onClick={this.handleShow}>
-          Launch demo modal
-        </Button>
-     */}
 
         <span onClick={this.handleShow}>{this.props.textToGetModal}</span>
 
@@ -53,26 +48,6 @@ export default class ModalExample extends Component {
             <p>
               Duis mollis <ModalTwo />, est non commodo luctus, nisi erat porttitor ligula.
             </p>
-
-            <h4>Popover in a modal</h4>
-            <p>
-              there is a{' '}
-              <OverlayTrigger overlay={popover}>
-                <a href="#popover">popover</a>
-              </OverlayTrigger>{' '}
-              here
-            </p>
-
-            <h4>Tooltips in a modal</h4>
-            <p>
-              there is a{' '}
-              <OverlayTrigger overlay={tooltip}>
-                <a href="#tooltip">tooltip</a>
-              </OverlayTrigger>{' '}
-              here
-            </p>
-
-            <hr />
 
             <FormExample />
             

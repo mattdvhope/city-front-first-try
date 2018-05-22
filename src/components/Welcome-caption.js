@@ -162,7 +162,6 @@ const TextContainer = styled.div`
   }
 `
 
-
 export default class WelcomeCaption extends Component {
 
   constructor(props) {

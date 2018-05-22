@@ -2,21 +2,15 @@ const _ = require('lodash')
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 
-exports.modifyWebpackConfig = ({ config, stage }) => {
-  if (stage === "build-html") {
-    config.loader(
-      "null",
-      { test: /mdbreact/,
-        loader: "null-loader"
-      }),
-
-    config.noParse(
-      [
-      '/node_modules/prebuiltlib/dist/build.js',
-      ]
-    );
-  }
-};
+// exports.modifyWebpackConfig = ({ config, stage }) => {
+//   if (stage === "build-html") {
+//     config.loader(
+//       "null",
+//       { test: /mdbreact/,
+//         loader: "null-loader"
+//       })
+//   }
+// };
 
 
 exports.createPages = ({ boundActionCreators, graphql }) => {

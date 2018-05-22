@@ -14,19 +14,11 @@ function FieldGroup({ id, label, help, ...props }) {
   );
 }
 
-let element = document.querySelector('meta[name=csrf-token]');
-let csrf_token = element && element.getAttribute("content");
-console.log(csrf_token);
-console.log("Hello!!!!!!");
-
 export default class FormExample extends React.Component {
   constructor(props, context) {
     super(props, context);
 
     this.handleChange = this.handleChange.bind(this);
-
-    // const element = document.querySelector('meta[name=csrf-token]');
-    // const csrf_token = element && element.getAttribute("content");
 
     this.state = {
       value: '',

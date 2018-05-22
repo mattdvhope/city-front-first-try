@@ -22,7 +22,6 @@ export default class FormExample extends React.Component {
 
     this.state = {
       value: '',
-      csrf_token: csrf_token,
       class_times: []
     };
   }

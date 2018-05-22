@@ -13,7 +13,7 @@ import {
   DropdownMenu,
   DropdownItem } from 'reactstrap';
 
-export default class Example extends React.Component {
+export default class NavbarTop extends React.Component {
   constructor(props) {
     super(props);
 
@@ -37,13 +37,13 @@ export default class Example extends React.Component {
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="ml-auto" navbar>
             <NavItem>
-              <Link to="/" className="nav-link">Home</Link>
+              <Link to="/" onClick={this.toggle} className="nav-link text-center">Home</Link>
             </NavItem>
             <NavItem>
-              <Link to="/about" className="nav-link">About</Link>
+              <Link to="/about" onClick={this.toggle} className="nav-link text-center">About</Link>
             </NavItem>
             <NavItem>
-              <Link to="/products" className="nav-link">Products</Link>
+              <Link to="/products" onClick={this.toggle} className="nav-link text-center">Products</Link>
             </NavItem>
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
@@ -51,19 +51,19 @@ export default class Example extends React.Component {
               </DropdownToggle>
               <DropdownMenu right>
                 <DropdownItem>
-                  <Link to="/about" className="nav-link">About</Link>
+                  <Link to="/about" onClick={this.toggle} className="nav-link">About</Link>
                 </DropdownItem>
                 <DropdownItem>
-                  <Link to="/products" className="nav-link">Products</Link>
+                  <Link to="/products" onClick={this.toggle} className="nav-link">Products</Link>
                 </DropdownItem>
                 <DropdownItem divider />
                 <DropdownItem>
-                  <Link to="/" className="nav-link">Home</Link>
+                  <Link to="/" onClick={this.toggle} className="nav-link">Home</Link>
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
             <NavItem>
-              <Link to="/products" className="nav-link">
+              <Link to="/products" onClick={this.toggle} className="nav-link">
 								<img 
 								  src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/usa_flag_circle.png"
 								  alt="Usa"/>
@@ -76,7 +76,7 @@ export default class Example extends React.Component {
               <Link to="#" className="nav-link"></Link>
             </NavItem>
             <NavItem>
-              <Link to="/about" className="nav-link">
+              <Link to="/about" onClick={this.toggle} className="nav-link">
 								<img 
 								  src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/thailand_flag_circle.png"
 								  alt="Thai"/>

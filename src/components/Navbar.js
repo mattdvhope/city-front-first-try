@@ -1,50 +1,98 @@
 import React from "react";
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'reactstrap';
+import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
+import Link from 'gatsby-link'
 
 export default class NavbarOnTop extends React.Component {
-    render() {
+  constructor(props) {
+    super(props);
+    this.toggleNavbar = this.toggleNavbar.bind(this);
+    this.onItemClick = this.onItemClick.bind(this);
+    this.state = { collapsed: true, };
+  }
+  toggleNavbar() {
+    this.setState({
+      collapsed: !this.state.collapsed,
+    });
+  }
+  onItemClick(event) {
+    this.setState({ selectedItem: event.currentTarget.dataset.id });
+  }
+  render() {
+    const collapsed = this.state.collapsed;
+    const classOne = collapsed ? 'navbar-toggle collapsed' : 'navbar-toggle show';
+    const classTwo = collapsed ? 'navbar-toggler navbar-toggler-right collapsed' : 'navbar-toggler navbar-toggler-right';
     return (
       <Navbar inverse collapseOnSelect fixedTop>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="/">CEP</a>
+            <div><a href="/"><img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP+logo+small.jpg" alt="logo" className="img-responsive" /></a></div>
           </Navbar.Brand>
+
+        {/* 
+          <button onClick={this.toggleNavbar} type="button" className={`${classOne}`}>
+            <span className="sr-only">Toggle navigation</span>
+            <span className="icon-bar"></span>
+            <span className="icon-bar"></span>
+            <span className="icon-bar"></span>
+          </button>
+        */}
+
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
-          <Nav pullRight>
+          <ul className="nav navbar-nav navbar-right">
+            <li>
+              <Link to="/about"><div><img
+                onClick={this.toggleNavbar}
+                className="firstPic"
+                src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/thailand_flag_circle.png"
+                alt="Thai"/></div></Link>
+            </li>
+            <li>
+              <Link to="/products"><div><img
+                onClick={this.toggleNavbar}
+                className="secondPic"
+                src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/usa_flag_circle.png"
+                alt="USA"/></div></Link>
+            </li>
+          </ul>
+          <Nav pullLeft>
             <LinkContainer to="/">
-              <NavItem eventKey={1}>Home</NavItem>
+              <NavItem eventKey={2} className="text-center">Home</NavItem>
             </LinkContainer>
-            <NavDropdown eventKey={2} title="Items to Choose" id="basic-nav-dropdown">
+            <LinkContainer to="/Tags">
+              <NavItem eventKey={4} className="text-center">Tags</NavItem>
+            </LinkContainer>
+            <NavDropdown eventKey={3} title="Items to Choose" id="basic-nav-dropdown" className="text-center">
               <LinkContainer to="#">
                 <MenuItem divider />
               </LinkContainer>
               <LinkContainer to="/about">
-                <MenuItem eventKey={2.1}>About</MenuItem>    
+                <MenuItem eventKey={3.1} className="text-center">About</MenuItem>    
               </LinkContainer>
               <LinkContainer to="#">
                 <MenuItem divider />
               </LinkContainer>
               <LinkContainer to="/products">
-                <MenuItem eventKey={2.2}>Products</MenuItem>    
+                <MenuItem eventKey={3.2} className="text-center">Products</MenuItem>    
               </LinkContainer>      
               <LinkContainer to="#">
                 <MenuItem divider />
               </LinkContainer>      
               <LinkContainer to="/blog-index">
-                <MenuItem eventKey={2.3}>Blog List</MenuItem>    
+                <MenuItem eventKey={3.3} className="text-center">Blog List</MenuItem>    
               </LinkContainer>      
               <LinkContainer to="#">
                 <MenuItem divider />
               </LinkContainer>      
-            </NavDropdown>  
-            <LinkContainer to="/Tags">
-              <NavItem eventKey={3}>Tags</NavItem>
-            </LinkContainer>
+            </NavDropdown>
+
           </Nav>
+
         </Navbar.Collapse>
+
+
       </Navbar>
     );
   }

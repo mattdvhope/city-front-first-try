@@ -19,14 +19,11 @@ export default class FrontPage extends React.Component {
   render() {
     return (
         <div>
-        {/* 
-
           <ControlledCarousel />
           <WelcomeCaption />
           <FeaturesHere />
           <Member />
           <Footer />
-         */}
         </div>
     )
   }

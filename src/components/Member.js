@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "gatsby-link";
 import styled from "styled-components";
-import { Grid, Row, Col } from 'reactstrap';
+import { Grid, Row, Col } from 'react-bootstrap';
 
 import cityTalkClass from '../img/City-Talk-Class.jpg'
 import engConvParnters from '../img/English-Conversation-Partners.jpg'

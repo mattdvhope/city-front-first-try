@@ -42,7 +42,7 @@ class FormApplication extends React.Component {
     })
     .then(response => {
       console.log(response);
-      this.props.history.push("/products");
+      this.props.history.push("/products"); // 'history' from withRouter
       this.props.handleClose();
     })
     .catch(error => console.log(error))

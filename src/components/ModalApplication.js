@@ -30,7 +30,7 @@ export default class ModalApplication extends Component {
     return (
       <span>
 
-        <span onClick={this.handleShow}>{this.props.textToGetModal}</span>
+        <span onClick={this.handleShow}>{this.props.getApplication}</span>
 
         <Modal show={this.state.show} onHide={this.handleClose}>
           <Modal.Header closeButton>

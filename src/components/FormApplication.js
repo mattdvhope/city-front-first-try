@@ -14,7 +14,7 @@ function FieldGroup({ id, label, help, ...props }) {
   );
 }
 
-export default class FormExample extends React.Component {
+export default class FormApplication extends React.Component {
   constructor(props, context) {
     super(props, context);
 
@@ -35,7 +35,7 @@ export default class FormExample extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(`https://enigmatic-castle-3874.herokuapp.com/class_times.json`)
+    axios.get(`${process.env.GATSBY_API_URL}/class_times.json`)
       .then((response) => {
         console.log(response.data); // ex.: { user: 'Your User'}
         console.log(response.status); // ex.: 200
@@ -63,7 +63,7 @@ export default class FormExample extends React.Component {
       email: this.state.email,
     }
 
-    axios.post('https://enigmatic-castle-3874.herokuapp.com/users', {
+    axios.post(`${process.env.GATSBY_API_URL}/users`, {
       utf8: "✓",
       class_time_scheduled_1: this.state.class_time_scheduled_1,
       class_time_scheduled_2: this.state.class_time_scheduled_2,

@@ -3,10 +3,10 @@ import Link from 'gatsby-link';
 import styled from "styled-components";
 import { Modal, Popover, Tooltip, Button, OverlayTrigger } from 'react-bootstrap';
 
-import FormExample from './FormExample'
+import FormApplication from './FormApplication'
 import ModalTwo from './ModalTwo'
 
-export default class ModalExample extends Component {
+export default class ModalApplication extends Component {
   constructor(props, context) {
     super(props, context);
 
@@ -49,7 +49,7 @@ export default class ModalExample extends Component {
               Duis mollis <ModalTwo />, est non commodo luctus, nisi erat porttitor ligula.
             </p>
 
-            <FormExample handleClose={this.handleClose}/>
+            <FormApplication handleClose={this.handleClose}/>
 
           </Modal.Body>
           <Modal.Footer>

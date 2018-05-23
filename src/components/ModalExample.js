@@ -49,8 +49,8 @@ export default class ModalExample extends Component {
               Duis mollis <ModalTwo />, est non commodo luctus, nisi erat porttitor ligula.
             </p>
 
-            <FormExample />
-            
+            <FormExample handleClose={this.handleClose}/>
+
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.handleClose}>Close</Button>

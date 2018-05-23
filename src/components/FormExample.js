@@ -21,8 +21,16 @@ export default class FormExample extends React.Component {
     this.handleChange = this.handleChange.bind(this);
 
     this.state = {
-      value: '',
-      class_times: []
+      class_times: [],
+      guest: true,
+      nickname: '',
+      first_name: '',
+      last_name: '',
+      gender: 'ผู้ชาย',
+      phone_number: '',
+      email: '',
+      class_time_scheduled_1: '',
+      class_time_scheduled_2: 'select_option'
     };
   }
 
@@ -37,58 +45,66 @@ export default class FormExample extends React.Component {
       });
   }
 
-  getValidationState() {
-    const length = this.state.value.length;
-    if (length > 10) return 'success';
-    else if (length > 5) return 'warning';
-    else if (length > 0) return 'error';
-    return null;
+  handleChange = e => {
+    console.log(e.target.value)
+    this.setState({[e.target.name]: e.target.value});
   }
 
-  handleChange(e) {
-    this.setState({ value: e.target.value });
-  }
+  handleSubmit = e => {
+    e.preventDefault();
 
-  addNewUser = () => {
-    axios.post(
-      'https://enigmatic-castle-3874.herokuapp.com/sessions',
-        {
-          email: 'matt@test.tv',
-          password: 'password'
-        }
-    )
+    const user = {
+      guest: true,
+      nickname: this.state.nickname,
+      first_name: this.state.first_name,
+      last_name: this.state.last_name,
+      gender: this.state.gender,
+      phone_number: this.state.phone_number,
+      email: this.state.email,
+    }
+
+    axios.post('https://enigmatic-castle-3874.herokuapp.com/users', {
+      utf8: "✓",
+      class_time_scheduled_1: this.state.class_time_scheduled_1,
+      class_time_scheduled_2: this.state.class_time_scheduled_2,
+      user: user,
+    })
     .then(response => {
       console.log(response)
+      this.props.handleClose();
     })
     .catch(error => console.log(error))
   }
 
   render() {
     return (
-      <form onSubmit={this.addNewUser} noValidate="noValidate" encType="multipart/form-data" action="/users" acceptCharset="UTF-8">
+      <form onSubmit={this.handleSubmit} noValidate="noValidate" encType="multipart/form-data" action="/" acceptCharset="UTF-8">
         <input type="hidden" name="utf8" value="✓" />
-        <input type="hidden" name="authenticity_token" value="{this.state.csrf_token}" />
+    {/* <input type="hidden" name="authenticity_token" value="{this.state.csrf_token}" />  */}
         <input type="hidden" name="guest" value="true" />
 
         <FieldGroup
           id="formControlsText"
+          label="Nickname"
           name="nickname"
           type="text"
-          label="Nickname"
+          onChange={this.handleChange}
           placeholder="Enter nickname"
         />
         <FieldGroup
           id="formControlsText"
+          label="First Name"
           name="first_name"
           type="text"
-          label="First Name"
+          onChange={this.handleChange}
           placeholder="Enter first name"
         />
         <FieldGroup
           id="formControlsText"
+          label="Last Name"
           name="last_name"
           type="text"
-          label="Last Name"
+          onChange={this.handleChange}
           placeholder="Enter last name"
         />
 
@@ -96,6 +112,7 @@ export default class FormExample extends React.Component {
           <ControlLabel>Select Gender</ControlLabel>
           <FormControl
             componentClass="select"
+            onChange={this.handleChange}
             placeholder="select gender"
             name="gender">
             <option value="ผู้ชาย">ผู้ชาย</option>
@@ -105,16 +122,18 @@ export default class FormExample extends React.Component {
 
         <FieldGroup
           id="formControlsText"
+          label="Phone Number"
           name="phone_number"
           type="text"
-          label="Phone Number"
+          onChange={this.handleChange}
           placeholder="Enter phone number"
         />
         <FieldGroup
           id="formControlsEmail"
+          label="Email address"
           name="email"
           type="email"
-          label="Email address"
+          onChange={this.handleChange}
           placeholder="Enter email"
         />
       {/* 
@@ -125,11 +144,11 @@ export default class FormExample extends React.Component {
           placeholder="Enter password"
         />
       */}
-
         <FormGroup controlId="formControlsSelect">
           <ControlLabel>Select</ControlLabel>
           <FormControl
             componentClass="select"
+            onChange={this.handleChange}
             placeholder="select class time"
             name="class_time_scheduled_1">
             <option value="select">select</option>
@@ -139,8 +158,8 @@ export default class FormExample extends React.Component {
           </FormControl>
         </FormGroup>
 
-    {/* <Button type="submit" >Submit</Button> */}
-        <Button onClick={this.addNewUser}>Submit</Button>
+        <Button type="submit">Submit</Button>
+    {/* <Button onClick={this.handleSubmit}>Submit</Button> */}
       </form>
     );
   }

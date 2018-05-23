@@ -1,8 +1,15 @@
 import React from "react";
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
+import styled from "styled-components";
 import Link from 'gatsby-link'
 
+import ModalLogin from './ModalLogin'
+import ModalApplication from './ModalApplication'
+
+const ModalStyler = styled.span`
+  cursor: pointer;
+`
 export default class NavbarOnTop extends React.Component {
   constructor(props) {
     super(props);
@@ -64,27 +71,23 @@ export default class NavbarOnTop extends React.Component {
               <NavItem eventKey={4} className="text-center">Tags</NavItem>
             </LinkContainer>
             <NavDropdown eventKey={3} title="Items to Choose" id="basic-nav-dropdown" className="text-center">
-              <LinkContainer to="#">
-                <MenuItem divider />
-              </LinkContainer>
+              <MenuItem divider />
               <LinkContainer to="/about">
                 <MenuItem eventKey={3.1} className="text-center">About</MenuItem>    
               </LinkContainer>
-              <LinkContainer to="#">
-                <MenuItem divider />
-              </LinkContainer>
+              <MenuItem divider />
+              <li role="presentation" className="text-center">
+                <ModalStyler><ModalLogin getLogin="Log in" /></ModalStyler>
+              </li>
+              <MenuItem divider />
               <LinkContainer to="/products">
-                <MenuItem eventKey={3.2} className="text-center">Products</MenuItem>    
+                <MenuItem eventKey={3.3} className="text-center">Products</MenuItem>    
               </LinkContainer>      
-              <LinkContainer to="#">
-                <MenuItem divider />
-              </LinkContainer>      
+              <MenuItem divider />
               <LinkContainer to="/blog-index">
-                <MenuItem eventKey={3.3} className="text-center">Blog List</MenuItem>    
+                <MenuItem eventKey={3.4} className="text-center">Blog List</MenuItem>    
               </LinkContainer>      
-              <LinkContainer to="#">
-                <MenuItem divider />
-              </LinkContainer>      
+              <MenuItem divider />
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

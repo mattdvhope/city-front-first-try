@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Link from 'gatsby-link';
-import styled from "styled-components";
 import axios from 'axios'
 import { FormGroup, ControlLabel, FormControl, HelpBlock, Checkbox, Radio, Button } from 'react-bootstrap';
 
@@ -136,14 +135,6 @@ export default class FormApplication extends React.Component {
           onChange={this.handleChange}
           placeholder="Enter email"
         />
-      {/* 
-        <FieldGroup
-          id="formControlsPassword"
-          type="password"
-          label="Password"
-          placeholder="Enter password"
-        />
-      */}
         <FormGroup controlId="formControlsSelect">
           <ControlLabel>Select</ControlLabel>
           <FormControl
@@ -159,7 +150,6 @@ export default class FormApplication extends React.Component {
         </FormGroup>
 
         <Button type="submit">Submit</Button>
-    {/* <Button onClick={this.handleSubmit}>Submit</Button> */}
       </form>
     );
   }

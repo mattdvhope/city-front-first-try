@@ -60,7 +60,3 @@ export default class ModalApplication extends Component {
     );
   }
 }
-
-// render(<Example />);
-
-

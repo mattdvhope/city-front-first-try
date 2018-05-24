@@ -42,7 +42,7 @@ export default class ControlledCarousel extends React.Component {
           <Link to="/about">
             <Img
               alt="Home page picture"
-              sizes={this.props.carouselImage.sizes}
+              sizes={this.props.carouselImage1.sizes}
             />
           </Link>
           <Carousel.Caption>
@@ -50,21 +50,30 @@ export default class ControlledCarousel extends React.Component {
         </Carousel.Item>
         <Carousel.Item>
           <Link to="/products">
-            <img src={pic2}/>
+            <Img
+              alt="Home page picture"
+              sizes={this.props.carouselImage2.sizes}
+            />
           </Link>
           <Carousel.Caption>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <Link to="/about">
-            <img src={pic3}/>
+            <Img
+              alt="Home page picture"
+              sizes={this.props.carouselImage3.sizes}
+            />
           </Link>
           <Carousel.Caption>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <Link to="/products">
-            <img src={pic4}/>
+            <Img
+              alt="Home page picture"
+              sizes={this.props.carouselImage4.sizes}
+            />
           </Link>
           <Carousel.Caption>
           </Carousel.Caption>

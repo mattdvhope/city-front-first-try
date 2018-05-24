@@ -3,7 +3,7 @@ import Link from 'gatsby-link';
 import axios from 'axios';
 import { FormGroup, ControlLabel, FormControl, HelpBlock, Checkbox, Radio, Button } from 'react-bootstrap';
 
-import { withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router';
 
 function FieldGroup({ id, label, help, ...props }) {
   return (
@@ -15,7 +15,7 @@ function FieldGroup({ id, label, help, ...props }) {
   );
 }
 
-class FormApplication extends React.Component {
+class FormLogin extends React.Component {
   constructor(props, context) {
     super(props, context);
 
@@ -45,7 +45,10 @@ class FormApplication extends React.Component {
       this.props.history.push("/products"); // 'history' from withRouter
       this.props.handleClose();
     })
-    .catch(error => console.log(error))
+    .catch(error => {
+      console.log(error.message);
+      this.props.history.push("/"); // 'history' from withRouter
+    });
   }
 
   render() {
@@ -74,5 +77,5 @@ class FormApplication extends React.Component {
   }
 }
 
-export default withRouter(FormApplication);
+export default withRouter(FormLogin);
 

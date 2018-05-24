@@ -7,6 +7,7 @@ import '../sass/all.sass'
 import '../sass/navbar.sass'
 
 const TemplateWrapper = ({ children }) => (
+
   <div className="container-full">
     <Helmet title="City English Project | Home">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
@@ -15,7 +16,6 @@ const TemplateWrapper = ({ children }) => (
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous" />
 		 */}
     </Helmet>
-
   	<NavbarOnTop />
 
     <div>{children()}</div>

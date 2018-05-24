@@ -13,7 +13,7 @@ export default class FrontPage extends React.Component {
   render() {
     return (
         <div>
-          <ControlledCarousel />
+          <ControlledCarousel carouselImage={this.props.data.carouselImage}/>
           <WelcomeCaption />
           <FeaturesHere />
           <Member />
@@ -22,3 +22,14 @@ export default class FrontPage extends React.Component {
     )
   }
 }
+
+export const pageQuery = graphql`
+  query CarouselImageQuery {
+    carouselImage: imageSharp(id: { regex: "/1Home-Page-Pic/" }) {
+      sizes(maxWidth: 1240 ) {
+        ...GatsbyImageSharpSizes
+      }
+    }
+  }
+`
+

@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "gatsby-link";
 import { Carousel } from 'react-bootstrap';
+import Img from "gatsby-image";
 
 import '../sass/carousel.sass'
 import pic1 from '../img/1Home-Page-Pic.jpg'
@@ -39,7 +40,10 @@ export default class ControlledCarousel extends React.Component {
       >
         <Carousel.Item>
           <Link to="/about">
-            <img src={pic1}/>
+            <Img
+              alt="Home page picture"
+              sizes={this.props.carouselImage.sizes}
+            />
           </Link>
           <Carousel.Caption>
           </Carousel.Caption>

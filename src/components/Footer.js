@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import Link from 'gatsby-link';
-import styled from "styled-components";
 import { Grid, Row, Col } from 'react-bootstrap';
+import Img from "gatsby-image";
 
+import styled from "styled-components";
 import styles from "../sass/footer.module.css";
+
 import cityScape from '../img/City-scape.jpg'
 import cityScapeMedium from '../img/City-scape-medium.jpg'
 import cityScapeSmaller from '../img/City-scape-smaller.jpg'
@@ -27,30 +29,6 @@ const TitleContainer = styled.div`
   margin-left: 4%;
   margin-bottom: 12px;
 `;
-
-const CEPLogoImg = styled.img`
-  height: auto;
-  border-radius: 50%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-
-  @media (min-width: 767px) {
-    max-width: 95%;
-    width: 100%;
-  }
-  @media (max-width: 767px) {
-    margin-top: 0%;
-    max-width: 25%;
-  }
-  @media (max-width: 667px) {
-    margin-top: 0%;
-  }
-  @media (max-width: 500px) {
-    margin-top: 0%;
-  }
-`;
-
 
 const ContactInfoColumn = styled.div`
   padding-left: 5%
@@ -134,7 +112,11 @@ export default class Footer extends Component {
 
           <Row>
             <Col sm={3} xs={12}>
-              <CEPLogoImg src={CEPLogo} alt="" />
+              <Img
+                sizes={this.props.footerlImage.sizes}
+                className={styles.CEPLogoImg}
+                alt="CEP logo"
+              />
             </Col>
 
             <Col sm={3 + this.state.SMchanger} xs={12}>

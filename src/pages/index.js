@@ -20,9 +20,15 @@ export default class FrontPage extends React.Component {
             carouselImage4={this.props.data.carouselImage4}
           />
           <WelcomeCaption />
-          <FeaturesHere />
+          <FeaturesHere
+            featureslImage1={this.props.data.featureslImage1}
+            featureslImage2={this.props.data.featureslImage2}
+            featureslImage3={this.props.data.featureslImage3}
+          />
           <Member />
-          <Footer />
+          <Footer
+            footerlImage={this.props.data.footerlImage}
+          />
         </div>
     )
   }
@@ -46,6 +52,26 @@ export const pageQuery1 = graphql`
       }
     }
     carouselImage4: imageSharp(id: { regex: "/4AtYourOffice/" }) {
+      sizes(maxWidth: 1240 ) {
+        ...GatsbyImageSharpSizes
+      }
+    }
+    featureslImage1: imageSharp(id: { regex: "/City-Talk-Class/" }) {
+      sizes(maxWidth: 1240 ) {
+        ...GatsbyImageSharpSizes
+      }
+    }
+    featureslImage2: imageSharp(id: { regex: "/English-Conversation-Partners/" }) {
+      sizes(maxWidth: 1240 ) {
+        ...GatsbyImageSharpSizes
+      }
+    }
+    featureslImage3: imageSharp(id: { regex: "/Conversation-Groups/" }) {
+      sizes(maxWidth: 1240 ) {
+        ...GatsbyImageSharpSizes
+      }
+    }
+    footerlImage: imageSharp(id: { regex: "/CEP-logo/" }) {
       sizes(maxWidth: 1240 ) {
         ...GatsbyImageSharpSizes
       }

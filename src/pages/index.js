@@ -25,7 +25,11 @@ export default class FrontPage extends React.Component {
             featureslImage2={this.props.data.featureslImage2}
             featureslImage3={this.props.data.featureslImage3}
           />
-          <Member />
+          <Member
+            memberlImage1={this.props.data.memberlImage1}
+            memberlImage2={this.props.data.memberlImage2}
+            memberlImage3={this.props.data.memberlImage3}
+          />
           <Footer
             footerlImage={this.props.data.footerlImage}
           />
@@ -67,6 +71,21 @@ export const pageQuery1 = graphql`
       }
     }
     featureslImage3: imageSharp(id: { regex: "/Conversation-Groups/" }) {
+      sizes(maxWidth: 1240 ) {
+        ...GatsbyImageSharpSizes
+      }
+    }
+    memberlImage1: imageSharp(id: { regex: "/Membership4Web/" }) {
+      sizes(maxWidth: 1240 ) {
+        ...GatsbyImageSharpSizes
+      }
+    }
+    memberlImage2: imageSharp(id: { regex: "/Holistic-Model/" }) {
+      sizes(maxWidth: 1240 ) {
+        ...GatsbyImageSharpSizes
+      }
+    }
+    memberlImage3: imageSharp(id: { regex: "/Friends-helping-friends/" }) {
       sizes(maxWidth: 1240 ) {
         ...GatsbyImageSharpSizes
       }

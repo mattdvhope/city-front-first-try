@@ -1,11 +1,14 @@
 import React from "react";
 import Link from "gatsby-link";
-import styled from "styled-components";
 import { Grid, Row, Col } from 'react-bootstrap';
+import Img from "gatsby-image";
 
-import cityTalkClass from '../img/City-Talk-Class.jpg'
-import engConvParnters from '../img/English-Conversation-Partners.jpg'
-import convGroups from '../img/Conversation-Groups.jpg'
+import styled from "styled-components";
+import styles from "../sass/member.module.css";
+
+import membership4Web from '../img/Membership4Web.jpg'
+import holisticModel from '../img/Holistic-Model.png'
+import friendsHelpingFriends from '../img/Friends-helping-friends.png'
 
 const MemberContainer = styled.div`
   padding-top: 25px;
@@ -29,57 +32,6 @@ const YouCanSpeakLink = styled(Link)`
   font-weight: bold;
 `; 
 
-const Avatar = styled.img`
-  height: auto;
-  border-radius: 20%;
-	display: block;
-  margin-left: auto;
-  margin-right: auto;
-
-  @media (min-width: 1087px) {
-	  margin-top: 7%;
-  }
-  @media (max-width: 1087px) {
-	  margin-top: 30%;
-  }
-
-  @media (min-width: 767px) {
-	  max-width: 95%;
-	  width: 100%;
-  }
-  @media (max-width: 767px) {
-	  margin-top: 0%;
-	  max-width: 55%;
-  }
-  @media (max-width: 667px) {
-	  margin-top: 0%;
-	  max-width: 60%;
-  }
-  @media (max-width: 500px) {
-	  margin-top: 0%;
-	  max-width: 70%;
-  }
-`;
-
-const FirstAvatar = Avatar.extend`
-  @media (min-width: 1087px) {
-	  margin-top: 2%;
-  }
-  @media (max-width: 1087px) {
-	  margin-top: 9%;
-  }
-
-  @media (max-width: 767px) {
-  	margin-top: 0px;
-  }
-  @media (max-width: 667px) {
-  	margin-top: 0px;
-  }
-  @media (max-width: 500px) {
-  	margin-top: 0px;
-  }
-`
-
 const ListContainer = styled.div`
 	width: 95%;
 	color: #2d3179;
@@ -95,7 +47,7 @@ const TextContent = styled.div`
 	font-size: 20px;
 `
 
-export default () => (
+export default (props) => (
 	<MemberContainer>
 		<Grid fluid>
 			<Row>
@@ -110,7 +62,11 @@ export default () => (
 			<hr/>
 			<Row>
 				<Col sm={6} xs={12}>
-					<FirstAvatar src="https://s3-ap-southeast-1.amazonaws.com/beamember/Membership4Web.jpg" alt="" />
+          <Img
+            sizes={props.memberlImage1.sizes}
+			    	className={styles.firstAvatar}
+            alt="Membership4Web"
+          />
 				</Col>
 				<Col sm={6} xs={12}>
 					<ListContainer>
@@ -127,7 +83,11 @@ export default () => (
 			<hr/>
 			<Row>
 				<Col sm={6} xs={12}>
-					<Avatar src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Holistic+Model.jpg" alt="" />
+          <Img
+            sizes={props.memberlImage2.sizes}
+			    	className={styles.avatar}
+            alt="Holistic Model"
+          />
 				</Col>
 				<Col sm={6} xs={12}>
 					<TextContainer>
@@ -140,7 +100,11 @@ export default () => (
 			<hr/>
 			<Row>
 				<Col sm={6} xs={12}>
-					<Avatar src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Friends+helping+friends.jpg" alt="" />
+          <Img
+            sizes={props.memberlImage3.sizes}
+			    	className={styles.avatar}
+            alt="Friends helping friends"
+          />
 				</Col>
 				<Col sm={6} xs={12}>
 					<TextContainer>

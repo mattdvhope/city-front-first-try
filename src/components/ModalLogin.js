@@ -5,6 +5,8 @@ import { Modal, Button } from 'react-bootstrap';
 
 import FormLogin from './FormLogin'
 
+import Login from "./Login"
+
 export default class ModalLogin extends Component {
   constructor(props, context) {
     super(props, context);
@@ -37,7 +39,7 @@ export default class ModalLogin extends Component {
           </Modal.Header>
           <Modal.Body>
 
-	        	<FormLogin handleClose={this.handleClose}/>
+	        <FormLogin handleClose={this.handleClose}/>
 
           </Modal.Body>
           <Modal.Footer>

@@ -1,6 +1,17 @@
 import React from "react"
 import { withRouter } from "react-router-dom"
+import { FormGroup, ControlLabel, FormControl, HelpBlock, Button } from 'react-bootstrap';
 import styles from "./form.module.css"
+
+function FieldGroup({ id, label, help, ...props }) {
+  return (
+    <FormGroup controlId={id}>
+      <ControlLabel>{label}</ControlLabel>
+      <FormControl {...props} />
+      {help && <HelpBlock>{help}</HelpBlock>}
+    </FormGroup>
+  );
+}
 
 export default withRouter(({ handleSubmit, handleUpdate, history }) => (
   <form
@@ -15,24 +26,24 @@ export default withRouter(({ handleSubmit, handleUpdate, history }) => (
       For this demo, please log in with the username <code>gatsby</code> and the
       password <code>demo</code>.
     </p>
-    <label className={styles[`form__label`]}>
-      Username
-      <input
-        className={styles[`form__input`]}
-        type="text"
-        name="username"
-        onChange={handleUpdate}
-      />
-    </label>
-    <label className={styles[`form__label`]}>
-      Password
-      <input
-        className={styles[`form__input`]}
-        type="password"
-        name="password"
-        onChange={handleUpdate}
-      />
-    </label>
-    <input className={styles[`form__button`]} type="submit" value="Log In" />
+
+    <input type="hidden" name="utf8" value="✓" />
+    <FieldGroup
+      id="formControlsEmail"
+      label="Email address"
+      name="username"
+      type="text"
+      onChange={handleUpdate}
+      placeholder="Enter email"
+    />
+    <FieldGroup
+      id="formControlsPassword"
+      label="Password"
+      name="password"
+      type="password"
+      onChange={handleUpdate}
+      placeholder="Enter password"
+    />
+    <Button type="submit">Log In</Button>
   </form>
 ))

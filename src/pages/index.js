@@ -13,6 +13,8 @@ export default class FrontPage extends React.Component {
   render() {
     return (
         <div>
+
+
           <ControlledCarousel
             carouselImage1={this.props.data.carouselImage1}
             carouselImage2={this.props.data.carouselImage2}
@@ -33,6 +35,7 @@ export default class FrontPage extends React.Component {
           <Footer
             footerlImage={this.props.data.footerlImage}
           />
+
         </div>
     )
   }

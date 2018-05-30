@@ -1,6 +1,7 @@
 import React from "react"
 import { withRouter } from "react-router-dom"
 import { FormGroup, ControlLabel, FormControl, HelpBlock, Button } from 'react-bootstrap';
+
 import styles from "./form.module.css"
 
 function FieldGroup({ id, label, help, ...props }) {
@@ -23,16 +24,16 @@ export default withRouter(({ handleSubmit, handleUpdate, history }) => (
     }}
   >
     <p className={styles[`form__instructions`]}>
-      For this demo, please log in with the username <code>gatsby</code> and the
-      password <code>demo</code>.
+      For this demo, please log in with the email <code>matt@test.tv</code> and the
+      password <code>password</code>.
     </p>
 
     <input type="hidden" name="utf8" value="✓" />
     <FieldGroup
       id="formControlsEmail"
       label="Email address"
-      name="username"
-      type="text"
+      name="email"
+      type="email"
       onChange={handleUpdate}
       placeholder="Enter email"
     />

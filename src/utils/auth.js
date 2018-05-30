@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 const isBrowser = typeof window !== `undefined`
 
 const getUser = () =>
@@ -7,26 +9,30 @@ const getUser = () =>
 
 const setUser = user => (window.localStorage.gatsbyUser = JSON.stringify(user))
 
-export const handleLogin = ({ username, password }) => {
+export const handleLogin = ({ email, password }) => {
   if (!isBrowser) return false
 
-  if (username === `gatsby` && password === `demo`) {
-    console.log(`Credentials match! Setting the active user.`)
+  axios.post(`${process.env.GATSBY_API_URL}/sessions`, {
+    email: email,
+    password: password,
+  })
+  .then(response => {
+    console.log(response);
     return setUser({
       name: `Jim`,
       legalName: `James K. User`,
-      email: `jim@example.org`,
+      email: email,
     })
-  }
-
-  return false
+  })
+  .catch(error => {
+    return false
+  });
 }
 
 export const isLoggedIn = () => {
   if (!isBrowser) return false
 
   const user = getUser()
-
   return !!user.email
 }
 
@@ -39,3 +45,16 @@ export const logout = callback => {
   setUser({})
   callback()
 }
+
+
+
+  // if (email === `matt@test.tv` && password === `demo`) {
+  //   console.log(`Credentials match! Setting the active user.`)
+  //   return setUser({
+  //     name: `Jim`,
+  //     legalName: `James K. User`,
+  //     email: email,
+  //   })
+  // }
+  // return false
+

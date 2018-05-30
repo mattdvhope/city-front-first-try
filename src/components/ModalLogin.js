@@ -5,8 +5,6 @@ import { Modal, Button } from 'react-bootstrap';
 
 import FormLogin from './FormLogin'
 
-import Login from "./Login"
-
 export default class ModalLogin extends Component {
   constructor(props, context) {
     super(props, context);

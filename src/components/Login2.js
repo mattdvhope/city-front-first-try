@@ -5,6 +5,8 @@ import Form from "./Form"
 import View from "./View"
 import { handleLogin, isLoggedIn } from "../utils/auth"
 
+let loggedIn = false;
+
 export default class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -21,13 +23,36 @@ export default class Login extends React.Component {
     })
   }
 
-  handleSubmit(event) {
+  async handleSubmit(event) {
     event.preventDefault()
-    handleLogin(this.state)
+
+    console.log(loggedIn);
+
+    const response = await axios.post(`${process.env.GATSBY_API_URL}/sessions`, {
+      email: this.state.email,
+      password: this.state.password,
+    })
+    .then(response => {
+      loggedIn = true;      
+      return loggedIn;
+    })
+    .catch(error => {
+      return error;
+    });
+
+    console.log(response);
+    return response;
+    // handleLogin(this.state)
   }
 
   render() {
-    if (isLoggedIn()) {
+    // if (isLoggedIn()) {
+    //   return <Redirect to={{ pathname: `/app/profile` }} />
+    // }
+
+    console.log("in render", loggedIn);
+
+    if (loggedIn) {
       return <Redirect to={{ pathname: `/app/profile` }} />
     }
 

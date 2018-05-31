@@ -5,14 +5,21 @@ import Form from "./Form"
 import View from "./View"
 import { handleLogin, isLoggedIn } from "../utils/auth"
 
-export default class Login extends React.Component {
+let _this;
+
+export default class Login2 extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       email: ``,
       password: ``,
+      isLoggedIn: false,
     };
+  }
+
+  componentDidMount() {
+    _this = this;
   }
 
   handleUpdate(event) {
@@ -21,15 +28,23 @@ export default class Login extends React.Component {
     })
   }
 
-  handleSubmit(event) {
+  async handleSubmit(event) {
     event.preventDefault()
-    handleLogin(this.state)
+    await handleLogin(this.state)
+    _this.setState({
+      isLoggedIn: isLoggedIn()
+    });
+    console.log(isLoggedIn());
   }
 
   render() {
-    if (isLoggedIn()) {
+    if (this.state.isLoggedIn) {
+      // console.log("in render & going to profile");
       return <Redirect to={{ pathname: `/app/profile` }} />
     }
+
+    console.log(this.state.isLoggedIn);
+    // console.log("in render & re-rendering Login page");
 
     return (
       <View title="Log In">
@@ -41,3 +56,5 @@ export default class Login extends React.Component {
     )
   }
 }
+
+

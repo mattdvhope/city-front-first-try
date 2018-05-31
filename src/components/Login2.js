@@ -5,17 +5,45 @@ import Form from "./Form"
 import View from "./View"
 import { handleLogin, isLoggedIn } from "../utils/auth"
 
-let loggedIn = false;
+function wrapWithLoggedInUser(WrappedComponent) {
+  return class Enhancer extends React.Component {
 
-export default class Login extends React.Component {
+    render() {
+      return (
+        <div>
+          <h1>Hello!!!!!</h1>
+          <WrappedComponent headerProp = {42} />
+        </div>
+      )
+    }
+  }
+}
+
+
+let _this;
+
+class Login2 extends React.Component {
   constructor(props) {
     super(props);
+
+    console.log(props);
 
     this.state = {
       email: ``,
       password: ``,
+      isLoggedIn: false,
     };
   }
+
+  componentDidMount() {
+    console.log(this.props);
+    _this = this;
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log(this.state.isLoggedIn);
+  }
+
 
   handleUpdate(event) {
     this.setState({
@@ -25,36 +53,18 @@ export default class Login extends React.Component {
 
   async handleSubmit(event) {
     event.preventDefault()
-
-    console.log(loggedIn);
-
-    const response = await axios.post(`${process.env.GATSBY_API_URL}/sessions`, {
-      email: this.state.email,
-      password: this.state.password,
-    })
-    .then(response => {
-      loggedIn = true;      
-      return loggedIn;
-    })
-    .catch(error => {
-      return error;
-    });
-
-    console.log(response);
-    return response;
-    // handleLogin(this.state)
+    await handleLogin(this.state)
+      // .then(response => _this.setState({isLoggedIn: isLoggedIn()}))
+      // .catch(err => { console.log(err) });
   }
 
   render() {
-    // if (isLoggedIn()) {
-    //   return <Redirect to={{ pathname: `/app/profile` }} />
-    // }
-
-    console.log("in render", loggedIn);
-
-    if (loggedIn) {
+    if (isLoggedIn()) {
       return <Redirect to={{ pathname: `/app/profile` }} />
     }
+
+    console.log(this.state.isLoggedIn);
+    console.log(isLoggedIn());
 
     return (
       <View title="Log In">
@@ -66,3 +76,9 @@ export default class Login extends React.Component {
     )
   }
 }
+
+
+const CompletelyLoggedIn = wrapWithLoggedInUser(Login2)
+
+export default CompletelyLoggedIn;
+

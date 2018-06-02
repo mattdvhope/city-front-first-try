@@ -7,7 +7,7 @@ import { handleLogin, isLoggedIn } from "../utils/auth"
 
 let _this;
 
-export default class Login2 extends React.Component {
+export default class Login extends React.Component {
   constructor(props) {
     super(props);
 

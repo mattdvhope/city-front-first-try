@@ -54,8 +54,8 @@ class Login2 extends React.Component {
   async handleSubmit(event) {
     event.preventDefault()
     await handleLogin(this.state)
-      // .then(response => _this.setState({isLoggedIn: isLoggedIn()}))
-      // .catch(err => { console.log(err) });
+      .then(response => _this.setState({isLoggedIn: isLoggedIn()}))
+      .catch(err => { console.log(err) });
   }
 
   render() {

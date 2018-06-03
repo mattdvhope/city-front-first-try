@@ -1,14 +1,13 @@
 import React from "react"
-import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import promise from 'redux-promise';
-import Details from "../components/Details"
-import Home from "../components/Home"
-import Login2 from "../components/Login2"
-import PrivateRoute from "../components/PrivateRoute"
 import Status from "../components/Status"
+import PrivateRoute from "../components/PrivateRoute"
+import Home from "../components/Home"
+import Details from "../components/Details"
+import Login from "../components/Login"
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
@@ -25,7 +24,7 @@ const App = () => (
 	      <Switch> {/* Switch deals w/ BUG of Route both going to '/' and to /posts/new (or '/posts' & '/posts/new', etc..) */}
 			    <PrivateRoute path="/app/profile" component={Home} />
 			    <PrivateRoute path="/app/details" component={Details} />
-			    <Route path="/app/login" component={Login2} />
+			    <Route path="/app/login" component={Login} />
 	      </Switch>
 		  </BrowserRouter>
 	  </Provider>

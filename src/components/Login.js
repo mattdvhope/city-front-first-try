@@ -5,8 +5,6 @@ import Form from "./Form"
 import View from "./View"
 import { handleLogin, isLoggedIn } from "../utils/auth"
 
-let _this;
-
 export default class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -18,23 +16,18 @@ export default class Login extends React.Component {
     };
   }
 
-  componentDidMount() {
-    _this = this;
-  }
-
   handleUpdate(event) {
     this.setState({
       [event.target.name]: event.target.value,
     })
   }
 
-  async handleSubmit(event) {
+  handleSubmit(event) {
     event.preventDefault()
-    await handleLogin(this.state)
-    _this.setState({
+    handleLogin(this.state)
+    this.setState({
       isLoggedIn: isLoggedIn()
     });
-    console.log(isLoggedIn());
   }
 
   render() {

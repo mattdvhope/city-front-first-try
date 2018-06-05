@@ -42,9 +42,9 @@ class Login extends React.Component {
     event.preventDefault()
     let email = this.state.email
     let password = this.state.password
-    this.props.createSession({email, password}, () => {
-      this.props.history.push('/app/profile'); // The PostsNew component has access to a bunch of props (incl 'history') helping with Navigation --> provided by <Route path="/posts/new" component={PostsNew} /> to 'PostsNew'
-    });
+    // this.props.createSession({email, password}, () => {
+    //   this.props.history.push('/app/profile'); // The PostsNew component has access to a bunch of props (incl 'history') helping with Navigation --> provided by <Route path="/posts/new" component={PostsNew} /> to 'PostsNew'
+    // });
 
 
   }

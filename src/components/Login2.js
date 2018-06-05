@@ -27,18 +27,15 @@ export default class Login extends React.Component {
     event.preventDefault()
     const email = this.state.email || window.sessionStorage.email;
     const password = this.state.password || window.sessionStorage.password;
-    console.log(email, password);
 
     const promise = new Promise((resolve, reject) => {
       resolve(axios.post(`${process.env.GATSBY_API_URL}/sessions`, {email, password}));
     });
     promise
     .then((res) => {
-      console.log("with handleLogin");
       res.status === 200 ? handleLogin({email, password}) : '';
     })
     .then((res) => {
-      console.log("with window.location.reload");
       window.location.reload();
     })
     .catch((err) => {

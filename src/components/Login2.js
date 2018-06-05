@@ -1,20 +1,9 @@
 import React from "react"
 import { Redirect } from "react-router-dom"
-import axios from 'axios'
+import axios from 'axios';
 import Form from "./Form"
 import View from "./View"
 import { handleLogin, isLoggedIn } from "../utils/auth"
-
-// Maybe change this class to 'SessionsNew' and do it similarly to
-// 'PostsNew' in the Blog app from Udemy, using the appropriate action
-// and reducer -- and 'redux-promise' middleware!!  Somehow you'll need
-// to set the Redux Application state (prop??) to 'isLoggedIn' or to 'isLoggedOut'
-
-// Maybe something like this....
-// - Connect the component serving your router to your Redux store.
-// - Map a prop named isLoggedIn to state.auth.user != null or similar in your Redux store.
-// - Conditionally serve the '/' or '/Dashboard' route based on this prop.
-// - To initially set the user in your state container, you would need to write an authentication flow as appropriate to your application.
 
 export default class Login extends React.Component {
   constructor(props) {
@@ -23,32 +12,47 @@ export default class Login extends React.Component {
     this.state = {
       email: ``,
       password: ``,
-      isLoggedIn: false,
     };
+
+    this.setState = this.setState.bind(this);
   }
 
   handleUpdate(event) {
     this.setState({
       [event.target.name]: event.target.value,
-    })
+    });
   }
 
   handleSubmit(event) {
     event.preventDefault()
-    handleLogin(this.state)
-    this.setState({
-      isLoggedIn: isLoggedIn()
+    const email = this.state.email || window.sessionStorage.email;
+    const password = this.state.password || window.sessionStorage.password;
+    console.log(email, password);
+
+    const promise = new Promise((resolve, reject) => {
+      resolve(axios.post(`${process.env.GATSBY_API_URL}/sessions`, {email, password}));
+    });
+    promise
+    .then((res) => {
+      console.log("with handleLogin");
+      res.status === 200 ? handleLogin({email, password}) : '';
+    })
+    .then((res) => {
+      console.log("with window.location.reload");
+      window.location.reload();
+    })
+    .catch((err) => {
+      document.getElementById('formControlsEmail').value=`${this.state.email || window.sessionStorage.email}`
+      document.getElementById('formControlsPassword').value=`${this.state.password || window.sessionStorage.password}`
+      window.sessionStorage.email = this.state.email === '' ? window.sessionStorage.email : this.state.email;
+      window.sessionStorage.password = this.state.password === '' ? window.sessionStorage.password : this.state.password;
     });
   }
 
   render() {
-    if (this.state.isLoggedIn) {
-      // console.log("in render & going to profile");
+    if (isLoggedIn()) {
       return <Redirect to={{ pathname: `/app/profile` }} />
     }
-
-    console.log(this.state.isLoggedIn);
-    // console.log("in render & re-rendering Login page");
 
     return (
       <View title="Log In">

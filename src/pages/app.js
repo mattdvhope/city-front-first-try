@@ -10,7 +10,7 @@ import PrivateRoute from "../components/PrivateRoute"
 import Home from "../components/Home"
 import Details from "../components/Details"
 
-import LoginTest2 from '../components/LoginTest2';
+import Login2 from '../components/Login2';
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 
@@ -23,7 +23,7 @@ const App = () => (
 	      <Switch> {/* Switch deals w/ BUG of Route both going to '/' and to /posts/new (or '/posts' & '/posts/new', etc..) */}
 			    <PrivateRoute path="/app/profile" component={Home} />
 			    <PrivateRoute path="/app/details" component={Details} />
-			    <Route path="/app/login" component={LoginTest2} />
+			    <Route path="/app/login" component={Login2} />
 	      </Switch>
 		  </BrowserRouter>
 	  </Provider>

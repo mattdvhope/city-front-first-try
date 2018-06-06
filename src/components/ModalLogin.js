@@ -3,7 +3,7 @@ import Link from 'gatsby-link';
 import styled from "styled-components";
 import { Modal, Button } from 'react-bootstrap';
 
-import FormLogin from './FormLogin'
+import FormLoginTest from './FormLoginTest'
 
 export default class ModalLogin extends Component {
   constructor(props, context) {
@@ -37,7 +37,8 @@ export default class ModalLogin extends Component {
           </Modal.Header>
           <Modal.Body>
 
-	        	<FormLogin handleClose={this.handleClose}/>
+        {/* <FormLogin handleClose={this.handleClose}/> */}
+	        	<FormLoginTest handleClose={this.handleClose}/>
 
           </Modal.Body>
           <Modal.Footer>

@@ -40,7 +40,7 @@ export default class NavbarOnTop extends React.Component {
             <span className="sr-only">Toggle navigation</span>
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>
-            <span className="icon-bar"></span>
+            <span className="icon-bar"></span> 
           </button>
         */}
           <Navbar.Toggle />

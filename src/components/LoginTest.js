@@ -1,51 +1,82 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { createSession }  from '../_actions';
+import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
+import axios from 'axios';
+import Form from "./Form";
+import View from "./View";
+import { handleLogin, isLoggedIn } from "../utils/auth";
 
-class Login extends Component {
+export default class Login extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { term: '' };
+    this.state = {
+      email: ``,
+      password: ``
+    };
 
-    this.onInputChange = this.onInputChange.bind(this);
-    this.onFormSubmit = this.onFormSubmit.bind(this);
+    this.setState = this.setState.bind(this);
   }
 
-  onInputChange(event) {
-    this.setState({ term: event.target.value });
+  handleUpdate(event) {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
   }
 
-  onFormSubmit(event) {
-    event.preventDefault();
+  handleSubmit(event) {
+    event.preventDefault()
+    const email = this.state.email || window.sessionStorage.email;
+    const password = this.state.password || window.sessionStorage.password;
 
-    // We need to fetch weather data.
-    this.props.createSession(this.state.term);
-    this.setState({ term: '' })
+    const promise = new Promise((resolve, reject) => {
+      resolve(axios.post(`${process.env.GATSBY_API_URL}/sessions`, {email, password}));
+    });
+    promise
+    .then((res) => {
+      res.status === 200 ? handleLogin({email, password}) : '';
+    })
+    .then((res) => {
+      window.location.reload();
+    })
+    .catch((err) => {
+      document.getElementById('formControlsEmail').value=`${this.state.email || window.sessionStorage.email}`
+      document.getElementById('formControlsPassword').value=`${this.state.password || window.sessionStorage.password}`
+      window.sessionStorage.email = this.state.email === '' ? window.sessionStorage.email : this.state.email;
+      window.sessionStorage.password = this.state.password === '' ? window.sessionStorage.password : this.state.password;
+    });
   }
 
-  render()   {
+  render() {
+    if (isLoggedIn()) {
+      return <Redirect to={{ pathname: `/app/profile` }} />
+    }
+    
+    let {email, password} = this.state;
+
     return (
-      <form onSubmit={this.onFormSubmit} className="input-group">
-        <input
-          placeholder="Get a five-day forecast in your favorite cities"
-          className="form-control"
-          value={this.state.term}
-          onChange={this.onInputChange}
-        />
-        <span className="input-group-btn">
-          <button type="submit" className="btn btn-secondary">Submit</button>
-        </span>
-      </form>
-    );
+      <View title="Log In">
+        <div className="container">
+          <form className="form-signin" onSubmit={this.onSubmit}>
+            <h2 className="form-signin-heading">Create Account</h2>
+
+            <div className="form-group">
+              <input type="text" name="email" className="form-control"
+                placeholder="Email address" value={email} onChange={this.onChange} autoFocus />
+              <span className="help-block"></span>
+            </div>
+
+            <div className="form-group">
+              <input type="password" name="password" className="form-control"
+                placeholder="Password" value={password} onChange={this.onChange} />
+              <span className="help-block"></span>
+            </div>
+
+            <button className="btn btn-lg btn-primary btn-block" type="submit">Create Account</button>
+          </form>
+        </div>
+      </View>
+    )
   }
 }
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ createSession }, dispatch);
-}
-                    // null b/c we don't need state here; 2nd argument is our function for dispatching the action
-export default connect(null, mapDispatchToProps)(Login);
 
 

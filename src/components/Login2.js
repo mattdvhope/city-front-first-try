@@ -1,9 +1,9 @@
-import React from "react"
-import { Redirect } from "react-router-dom"
+import React from "react";
+import { Redirect } from "react-router-dom";
 import axios from 'axios';
-import Form from "./Form"
-import View from "./View"
-import { handleLogin, isLoggedIn } from "../utils/auth"
+import Form from "./Form";
+import View from "./View";
+import { handleLogin, isLoggedIn } from "../utils/auth";
 
 export default class Login extends React.Component {
   constructor(props) {

@@ -1,6 +1,6 @@
 import React from "react"
-// import View from "./View"
-// import { getCurrentUser } from "../utils/auth"
+import View from "./View"
+import { getCurrentUser } from "../utils/auth"
 
 const Details = () => {
   // const { name, legalName, email } = getCurrentUser()

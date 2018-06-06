@@ -1,14 +1,9 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Redirect, Route } from "react-router-dom"
-// import { isLoggedIn } from "../utils/auth"
+import { isLoggedIn } from "../utils/auth"
 
 // More info at https://reacttraining.com/react-router/web/example/auth-workflow
-
-///TEMPORARY FUNCTION!!!!!!!
-function isLoggedIn() {
-  return true;
-}
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route

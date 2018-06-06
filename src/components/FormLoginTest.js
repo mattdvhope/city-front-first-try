@@ -1,81 +1,51 @@
-import React, { Component } from 'react';
-import Link from 'gatsby-link';
-import axios from 'axios';
-import { FormGroup, ControlLabel, FormControl, HelpBlock, Checkbox, Radio, Button } from 'react-bootstrap';
+import React, {Component} from 'react';
+import {render} from 'react-dom';
 
-import { withRouter } from 'react-router';
-
-function FieldGroup({ id, label, help, ...props }) {
-  return (
-    <FormGroup controlId={id}>
-      <ControlLabel>{label}</ControlLabel>
-      <FormControl {...props} />
-      {help && <HelpBlock>{help}</HelpBlock>}
-    </FormGroup>
-  );
-}
-
-class FormLogin extends React.Component {
-  constructor(props, context) {
-    super(props, context);
-
-    this.handleChange = this.handleChange.bind(this);
-
+export default class Login extends Component {
+  constructor() {
+    super();
     this.state = {
-      email: '',
-      password: '',
+      email: {value: '', isValid: true, message: ''},
+      password: {value:'', isValid: true, message: ''}
     };
   }
 
-  handleChange = e => {
-    console.log(e.target.value)
-    this.setState({[e.target.name]: e.target.value});
+  onChange = (e) => {
+    var state = this.state;
+    state[e.target.name] = e.target.value;
+
+    this.setState(state);
   }
 
-  handleSubmit = e => {
+  onSubmit = (e) => {
     e.preventDefault();
 
-    axios.post(`${process.env.GATSBY_API_URL}/sessions`, {
-      utf8: "✓",
-      email: this.state.email,
-      password: this.state.password,
-    })
-    .then(response => {
-      console.log(response);
-      this.props.history.push("/products"); // 'history' from withRouter
-      this.props.handleClose();
-    })
-    .catch(error => {
-      console.log(error.message);
-      this.props.history.push("/"); // 'history' from withRouter
-    });
+    //handle form processing here....
   }
 
   render() {
+    var {email, password, confirmPassword} = this.state;
+
     return (
-      <form onSubmit={this.handleSubmit} noValidate="noValidate" encType="multipart/form-data" action="/" acceptCharset="UTF-8">
-        <input type="hidden" name="utf8" value="✓" />
-        <FieldGroup
-          id="formControlsEmail"
-          label="Email address"
-          name="email"
-          type="email"
-          onChange={this.handleChange}
-          placeholder="Enter email"
-        />
-        <FieldGroup
-          id="formControlsPassword"
-          label="Password"
-          name="password"
-          type="password"
-          onChange={this.handleChange}
-          placeholder="Enter password"
-        />
-        <Button type="submit">Submit</Button>
-      </form>
+      <div className="container-fluid">
+        <form className="form-signin" onSubmit={this.onSubmit}>
+          <h2 className="form-signin-heading">Create Account</h2>
+
+          <div className="form-group">
+            <input type="text" name="email" className="form-control"
+              placeholder="Email address" value={email} onChange={this.onChange} autoFocus />
+            <span className="help-block"></span>
+          </div>
+
+          <div className="form-group">
+            <input type="password" name="password" className="form-control"
+              placeholder="Password" value={password} onChange={this.onChange} />
+            <span className="help-block"></span>
+          </div>
+
+          <button className="btn btn-lg btn-primary btn-block" type="submit">Create Account</button>
+        </form>
+      </div>
     );
   }
-}
-
-export default withRouter(FormLogin);
-
+};

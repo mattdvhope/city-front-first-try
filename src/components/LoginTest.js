@@ -1,4 +1,9 @@
 import React, { Component } from "react";
+import styled from "styled-components";
+
+const LoginContainer = styled.div`
+  background-color: #BAD1A2;
+`
 
 export default class Login extends Component {
       constructor() {
@@ -26,6 +31,8 @@ export default class Login extends Component {
     var {email, password} = this.state;
 
     return (
+      <LoginContainer>
+
       <div className="container">
         <form className="form-signin" onSubmit={this.onSubmit}>
           <h2 className="form-signin-heading">Create Account</h2>
@@ -45,6 +52,8 @@ export default class Login extends Component {
           <button className="btn btn-lg btn-primary btn-block" type="submit">Create Account</button>
         </form>
       </div>
+
+      </LoginContainer>
     );
   }
 };

@@ -1,24 +1,39 @@
-import React from "react"
-import View from "./View"
-import { getCurrentUser } from "../utils/auth"
+import React, { Component } from "react"
 
-const Home = () => {
-  const { name } = getCurrentUser()
+export default class Login extends Component {
+  constructor() {
+    super();
+    this.state = {
+      firstname: '',
+      lastname: ''
+    };
+  }
 
-  return (
-    <form>
-		  First name:<br />
-		  <input type="text" name="firstname" value="Mickey" />
-		  <br />
-		  Last name:<br />
-		  <input type="text" name="lastname" value="Mouse" />
-		  <br />
-		  <input type="submit" value="Submit" />
-		</form>
-  )
+  onChange = (e) => {
+    var state = this.state;
+    state[e.target.name] = e.target.value;
+
+    this.setState(state);
+  }
+
+
+  render() {
+
+	  return (
+	    <form>
+			  Email:<br />
+			   <input type="text" name="email"
+              placeholder="Email address" onChange={this.onChange} autoFocus />
+			  <br />
+			  Password:<br />
+			   <input type="password" name="password"
+              placeholder="Password" onChange={this.onChange} />
+			  <br />
+			  <input type="submit" value="Submit" />
+			</form>
+	  )
+
+
+  }
+
 }
-
-export default Home
-
-
-

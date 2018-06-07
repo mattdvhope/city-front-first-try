@@ -38,10 +38,8 @@ export default class ModalLogin extends Component {
           </Modal.Header>
           <Modal.Body>
 
-        {/* <FormLogin handleClose={this.handleClose}/> */}
-        {/* <FormLoginTest handleClose={this.handleClose}/> */}
-	         <Login handleClose={this.handleClose}/>
-
+ 	          <Login handleClose={this.handleClose}/>
+            
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.handleClose}>Close</Button>

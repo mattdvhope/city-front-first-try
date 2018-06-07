@@ -10,9 +10,9 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
     {...rest}
     render={props =>
       !isLoggedIn() ? (
-        <Redirect to={{ pathname: `/app/login` }} />
+        <Redirect to={{ pathname: `/` }} />
       ) : (
-        <Component {...props} />
+        <Redirect to={{ pathname: `/app/profile` }} />
       )
     }
   />
@@ -24,3 +24,4 @@ PrivateRoute.propTypes = {
 
 export default PrivateRoute
 
+        // <Component {...props} />

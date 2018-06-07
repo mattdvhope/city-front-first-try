@@ -15,10 +15,12 @@ export default class Login extends React.Component {
       email: {value: '', isValid: true, message: ''},
       password: {value: '', isValid: true, message: ''},
     };
+
+    this.setState = this.setState.bind(this);
   }
 
   handleUpdate(event) {
-    var state = this.state;
+    let state = this.state;
     state[event.target.name].value = event.target.value;
 
     state[event.target.name].message = '';
@@ -35,11 +37,11 @@ export default class Login extends React.Component {
       });
       promise
       .then((res) => {
+        this.props.handleClose()        
         res.status === 200 ? handleLogin({email, password}) : '';
       })
       .then((res) => {
-        console.log(isLoggedIn());
-        window.location.reload();
+        this.setState(this.state)
       })
       .catch((err) => {
         console.log(err);
@@ -48,16 +50,11 @@ export default class Login extends React.Component {
         window.sessionStorage.email = email === '' ? window.sessionStorage.email : email;
         window.sessionStorage.password = password === '' ? window.sessionStorage.password : password;
       });
-
-      const ExampleWithAsync = props => (
-        <Async promise={promise} then={val => <div>{val}</div>} />
-      )
-
     }
   }
 
   formIsValid() {
-    var state = this.state;
+    let state = this.state;
 
     if (!validator.isEmail(state.email.value)) { // see https://www.npmjs.com/package/validator
       state.email.isValid = false;
@@ -71,7 +68,7 @@ export default class Login extends React.Component {
   }
 
   resetValidationStates() {
-    var state = this.state;
+    let state = this.state;
 
     Object.keys(state).map(key => {
       if (state[key].hasOwnProperty('isValid')) {
@@ -89,10 +86,8 @@ export default class Login extends React.Component {
     }
 
     let {email, password} = this.state;
-    console.log(email.isValid);
-
-    var emailGroupClass = classNames('form-group', {'has-error': !email.isValid});
-    var passwordGroupClass = classNames('form-group', {'has-error': !password.isValid});
+    let emailGroupClass = classNames('form-group', {'has-error': !email.isValid});
+    let passwordGroupClass = classNames('form-group', {'has-error': !password.isValid});
 
     return (
       <View title="Log In">

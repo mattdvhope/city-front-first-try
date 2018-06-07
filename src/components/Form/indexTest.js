@@ -19,7 +19,7 @@ export default withRouter(({ handleSubmit, handleUpdate, emailMessage, emailValu
     onSubmit={event => {
       event.preventDefault()
       handleSubmit(event)
-      // history.push(`/`)
+      // history.push(`/app/profile`)
     }}
   >
     <p>

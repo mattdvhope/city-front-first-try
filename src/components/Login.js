@@ -37,8 +37,8 @@ export default class Login extends React.Component {
       });
       promise
       .then((res) => {
-        this.props.handleClose()        
-        res.status === 200 ? handleLogin({email, password}) : '';
+        this.props.handleClose(); //..of modal
+        handleLogin({email, password});
       })
       .then((res) => {
         this.setState(this.state)

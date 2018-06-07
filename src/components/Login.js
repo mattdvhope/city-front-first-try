@@ -42,7 +42,7 @@ export default class Login extends React.Component {
         handleLogin({email, password});
       })
       .then((res) => {
-        this.setState(this.state)
+        this.setState(this.state) // to reset state once 'isLoggedIn'
       })
       .catch((err) => {
         console.log(err);
@@ -51,7 +51,7 @@ export default class Login extends React.Component {
         window.sessionStorage.email = email === '' ? window.sessionStorage.email : email;
         window.sessionStorage.password = password === '' ? window.sessionStorage.password : password;
       });
-    }
+    } 
   }
 
   formIsValid() {

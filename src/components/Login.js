@@ -30,7 +30,8 @@ export default class Login extends React.Component {
   handleSubmit(event) {
     this.resetValidationStates();
     if (this.formIsValid()) {
-      const email = this.state.email.value || window.sessionStorage.email;
+      let email = this.state.email.value || window.sessionStorage.email;
+      email = email.toLocaleLowerCase();
       const password = this.state.password.value || window.sessionStorage.password;
       const promise = new Promise((resolve, reject) => {
         resolve(axios.post(`${process.env.GATSBY_API_URL}/sessions`, {email, password}));

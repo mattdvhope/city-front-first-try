@@ -66,6 +66,7 @@ const WelcomeContainer = styled.div`
 `
 
 const TextContainer = styled.div`
+  font-family: "Neue Frutiger W31 Modern Light", "Athiti";
   @media (min-width: 1400px) {
     font-size: 24px;
     margin: 240px 190px 100px 485px;

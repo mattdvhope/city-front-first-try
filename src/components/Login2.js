@@ -36,7 +36,6 @@ export default class Login extends React.Component {
       res.status === 200 ? handleLogin({email, password}) : '';
     })
     .then((res) => {
-      console.log(res);
       window.location.reload();
     })
     .catch((err) => {
@@ -55,10 +54,13 @@ export default class Login extends React.Component {
 
     return (
       <View title="Log In">
+      {/* 
         <Form
           handleUpdate={e => this.handleUpdate(e)}
           handleSubmit={e => this.handleSubmit(e)}
         />
+      */}
+
       </View>
     )
   }

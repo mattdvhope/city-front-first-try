@@ -15,8 +15,6 @@ export default class Login extends React.Component {
       email: {value: '', isValid: true, message: ''},
       password: {value: '', isValid: true, message: ''},
     };
-
-    this.setState = this.setState.bind(this);
   }
 
   handleUpdate(event) {
@@ -28,7 +26,6 @@ export default class Login extends React.Component {
   }
 
   handleSubmit(event) {
-    event.preventDefault()
     this.resetValidationStates();
     if (this.formIsValid()) {
       const email = this.state.email.value || window.sessionStorage.email;
@@ -51,6 +48,11 @@ export default class Login extends React.Component {
         window.sessionStorage.email = email === '' ? window.sessionStorage.email : email;
         window.sessionStorage.password = password === '' ? window.sessionStorage.password : password;
       });
+
+      const ExampleWithAsync = props => (
+        <Async promise={promise} then={val => <div>{val}</div>} />
+      )
+
     }
   }
 
@@ -83,11 +85,12 @@ export default class Login extends React.Component {
 
   render() {
     if (isLoggedIn()) {
-      console.log("in render");
       return <Redirect to={{ pathname: `/app/profile` }} />
     }
 
     let {email, password} = this.state;
+    console.log(email.isValid);
+
     var emailGroupClass = classNames('form-group', {'has-error': !email.isValid});
     var passwordGroupClass = classNames('form-group', {'has-error': !password.isValid});
 
@@ -102,6 +105,7 @@ export default class Login extends React.Component {
           passwordValue={password.value}
           emailGroupClass={emailGroupClass}
           passwordGroupClass={passwordGroupClass}
+          validEmail={email.isValid}
         />
       </View>
     )

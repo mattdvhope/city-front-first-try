@@ -10,7 +10,6 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
     {...rest}
     render={props =>
       !isLoggedIn() ? (
-        // If we’re not logged in, redirect to the home page.
         <Redirect to={{ pathname: `/app/login` }} />
       ) : (
         <Component {...props} />
@@ -24,3 +23,4 @@ PrivateRoute.propTypes = {
 }
 
 export default PrivateRoute
+

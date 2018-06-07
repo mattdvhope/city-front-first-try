@@ -107,6 +107,10 @@ class Login extends Component {
         <Form
           handleUpdate={e => this.onChange(e)}
           handleSubmit={e => this.onSubmit(e)}
+          emailMessage={email.message}
+          emailValue={email.value}
+          passwordMessage={password.message}
+          passwordValue={password.value}
         />
 
   {/* 

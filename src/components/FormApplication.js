@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import Link from 'gatsby-link';
 import axios from 'axios'
+import styled from "styled-components";
 import { FormGroup, ControlLabel, FormControl, HelpBlock, Checkbox, Radio, Button } from 'react-bootstrap';
+
+const FormStyler = styled.span`
+  font-size: 150%;
+`
 
 function FieldGroup({ id, label, help, ...props }) {
   return (
@@ -77,6 +82,7 @@ export default class FormApplication extends React.Component {
 
   render() {
     return (
+      <FormStyler>
       <form onSubmit={this.handleSubmit} noValidate="noValidate" encType="multipart/form-data" action="/" acceptCharset="UTF-8">
         <input type="hidden" name="utf8" value="✓" />
     {/* <input type="hidden" name="authenticity_token" value="{this.state.csrf_token}" />  */}
@@ -149,8 +155,9 @@ export default class FormApplication extends React.Component {
           </FormControl>
         </FormGroup>
 
-        <Button type="submit">Submit</Button>
+        <button className="btn btn-success" type="submit">Submit</button>
       </form>
+      </FormStyler>
     );
   }
 }

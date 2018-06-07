@@ -4,9 +4,10 @@ import React from "react"
 
 const Home = () => {
   // const { name } = getCurrentUser()
+console.log("in HOME");
 
   return (
-      <p>Welcome back, !</p>
+      <h1>HOME</h1>
   )
 }
 

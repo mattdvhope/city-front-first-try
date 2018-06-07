@@ -8,13 +8,13 @@ import { isLoggedIn } from "../utils/auth"
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
-    render={props =>
-      !isLoggedIn() ? (
-        <Redirect to={{ pathname: `/` }} />
-      ) : (
-        <Redirect to={{ pathname: `/app/profile` }} />
-      )
-    }
+    render={props => {
+      if (!isLoggedIn()) {
+        return <Redirect to={{ pathname: `/` }} />;
+      } else {
+        return <Component {...props} />;
+      }
+    }}
   />
 )
 
@@ -24,4 +24,3 @@ PrivateRoute.propTypes = {
 
 export default PrivateRoute
 
-        // <Component {...props} />

@@ -83,7 +83,7 @@ export default class Login extends React.Component {
 
   render() {
     if (isLoggedIn()) {
-      return <Redirect to={{ pathname: `/app/profile` }} />
+      return <Redirect to={{ pathname: `/app/profile` }} />;
     }
 
     let {email, password} = this.state;

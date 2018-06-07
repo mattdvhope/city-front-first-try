@@ -10,6 +10,7 @@ import engConvParnters from '../img/English-Conversation-Partners.jpg'
 import convGroups from '../img/Conversation-Groups.jpg'
 
 const FeaturesContainer = styled.div`
+  font-family: "Neue Frutiger W31 Modern Light", "Athiti";
   background-color: #2D3179;
   padding-top: 25px;
   padding-bottom: 60px;
@@ -32,7 +33,7 @@ export default (props) => (
 		<Grid fluid>
 			<Row>
 				<TitleContainer>
-					<h1>Features</h1>
+					<h1 className="text-center">Features</h1>
 				</TitleContainer>
 			</Row>
 			<Row>

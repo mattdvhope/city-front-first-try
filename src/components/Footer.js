@@ -12,6 +12,7 @@ import cityScapeSmaller from '../img/City-scape-smaller.jpg'
 import CEPLogo from '../img/CEP-logo.jpg'
 
 const FooterContainer = styled.div`
+  font-family: "Neue Frutiger W31 Modern Light", "Athiti";
   padding-top: 20px;
   @media (min-width: 1070px) {
     height: 700px;

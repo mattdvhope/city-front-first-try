@@ -11,6 +11,7 @@ import holisticModel from '../img/Holistic-Model.png'
 import friendsHelpingFriends from '../img/Friends-helping-friends.png'
 
 const MemberContainer = styled.div`
+  font-family: "Neue Frutiger W31 Modern Light", "Athiti";
   padding-top: 25px;
   padding-bottom: 60px;
 `

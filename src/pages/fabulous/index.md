@@ -1,6 +1,6 @@
 ---
 templateKey: fabulous-page/index
-title: Our Coffee is here for you!!
+title: This is a Fabulous Page!!
 image: /img/jumbotron.jpg
 heading: What we offer
 description: >-

@@ -32,7 +32,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/pages`,
+        path: `${__dirname}/src/pages`, // path to markdown files
         name: `pages`,
       },
     },
@@ -46,7 +46,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-transformer-remark`, // To recognise files which are markdown and read their content. It will convert the frontmatter metadata part of your markdown file as frontmatter and the content part as HTML.
       options: {
         plugins: [],
       },

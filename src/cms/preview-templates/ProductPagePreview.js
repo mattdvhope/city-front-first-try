@@ -3,6 +3,10 @@ import PropTypes from 'prop-types'
 import { ProductPageTemplate } from '../../templates/product-page/index'
 
 const ProductPagePreview = ({ entry, getAsset }) => {
+
+  console.log("entry: ", entry);
+  console.log("entry.getIn..blurbs: ", entry.getIn(['data', 'intro', 'blurbs']));
+
   const entryBlurbs = entry.getIn(['data', 'intro', 'blurbs'])
   const blurbs = entryBlurbs ? entryBlurbs.toJS() : []
 

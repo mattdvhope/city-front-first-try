@@ -82,6 +82,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
   })
 }
 
+// use 'getNode' to traverse the “node graph” to its parent File node, as File nodes contain data we need about files on disk
 exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   const { createNodeField } = boundActionCreators
 

@@ -1,15 +1,11 @@
 import React from "react";
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-import styled from "styled-components";
 import Link from 'gatsby-link'
 
 import ModalLogin from './ModalLogin'
 import ModalApplication from './ModalApplication'
 
-const ModalStyler = styled.span`
-  cursor: pointer;
-`
 export default class NavbarOnTop extends React.Component {
   constructor(props) {
     super(props);
@@ -77,7 +73,7 @@ export default class NavbarOnTop extends React.Component {
               </LinkContainer>
               <MenuItem divider />
               <li role="presentation" className="text-center">
-                <ModalStyler><ModalLogin getLogin="Log in" /></ModalStyler>
+                <a><ModalLogin getLogin="Log in" /></a>
               </li>
               <MenuItem divider />
               <LinkContainer to="/products">

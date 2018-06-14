@@ -14,7 +14,6 @@ export default class FrontPage extends React.Component {
     return (
         <div>
 
-
           <ControlledCarousel
             carouselImage1={this.props.data.carouselImage1}
             carouselImage2={this.props.data.carouselImage2}

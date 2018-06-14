@@ -78,7 +78,7 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   const { createNodeField } = boundActionCreators
 
   if (node.internal.type === `MarkdownRemark`) {
-    // Use 'createFilePath' (imported) to create slugs from file names. The function handles finding the parent File node along with creating the slug.
+    // Use 'createFilePath' (imported from 'gatsby-source-filesystem') to create slugs from file names. The function handles finding the parent File node along with creating the slug.
     const value = createFilePath({ node, getNode })
     // 'createNodeField' allows us to add our new slugs directly onto the MarkdownRemark nodes.  This function allows us to create additional fields on nodes created by other plugins. 
     createNodeField({

@@ -16,6 +16,7 @@ const { createFilePath } = require('gatsby-source-filesystem')
 exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage } = boundActionCreators
 
+  // We’re using the passed in graphql function to query for the Markdown slugs we just created.
   return graphql(`
     {
       allMarkdownRemark(limit: 1000) {
@@ -51,6 +52,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         ),
         // additional data can be passed via context
         context: {
+          // Data passed to context is available in page queries as GraphQL variables.
           id,
         },
       })
@@ -87,7 +89,9 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   const { createNodeField } = boundActionCreators
 
   if (node.internal.type === `MarkdownRemark`) {
+    // Use 'createFilePath' (imported) to create slugs from file names. The function handles finding the parent File node along with creating the slug.
     const value = createFilePath({ node, getNode })
+    // 'createNodeField' allows us to add our new slugs directly onto the MarkdownRemark nodes.  This function allows us to create additional fields on nodes created by other plugins. 
     createNodeField({
       name: `slug`,
       node,

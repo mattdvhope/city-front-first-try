@@ -1,6 +1,6 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-import validator from 'validator';
+import validator from 'validator'; // see https://www.npmjs.com/package/validator
 import classNames from 'classnames';
 import axios from 'axios';
 import Form from "./Form/indexTest";

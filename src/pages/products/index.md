@@ -1,6 +1,6 @@
 ---
 templateKey: product-page/index
-title: Our Coffee is here for you!!
+title: Our Coffee is here for you for a change!!
 image: /img/jumbotron.jpg
 heading: What we offer
 description: >-

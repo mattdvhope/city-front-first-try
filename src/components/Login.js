@@ -1,7 +1,7 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 import validator from 'validator'; // see https://www.npmjs.com/package/validator
-import classNames from 'classnames';
+import classNames from 'classnames'; // see https://www.npmjs.com/package/classnames
 import axios from 'axios';
 import Form from "./Form/indexTest";
 import View from "./View";
@@ -45,7 +45,7 @@ export default class Login extends React.Component {
         this.setState(this.state) // to reset state once 'isLoggedIn'
       })
       .catch((err) => {
-        console.log(err);
+        this.showErrorsAfterSubmission();
         document.getElementById('formControlsEmail').value=`${email || window.sessionStorage.email}`
         document.getElementById('formControlsPassword').value=`${password || window.sessionStorage.password}`
         window.sessionStorage.email = email === '' ? window.sessionStorage.email : email;
@@ -57,14 +57,29 @@ export default class Login extends React.Component {
   formIsValid() {
     let state = this.state;
 
-    if (!validator.isEmail(state.email.value)) { // see https://www.npmjs.com/package/validator
+    if (!validator.isEmail(state.email.value) && validator.isEmpty(state.password.value)) {
       state.email.isValid = false;
+      state.password.isValid = false;
       state.email.message = 'Not a valid email address';
-
+      state.password.message = 'You must provide a password';
       this.setState(state);
       return false;
     }
-    //additional validation checks here...
+
+    if (!validator.isEmail(state.email.value)) { // see https://www.npmjs.com/package/validator
+      state.email.isValid = false;
+      state.email.message = 'Not a valid email address';
+      this.setState(state);
+      return false;
+    }
+
+    if (validator.isEmpty(state.password.value)) {
+      state.password.isValid = false;
+      state.password.message = 'You must provide a password';
+      this.setState(state);
+      return false;
+    }
+
     return true;
   }
 
@@ -79,6 +94,13 @@ export default class Login extends React.Component {
       }
     });
     this.setState(state);
+  }
+
+  showErrorsAfterSubmission() {
+    this.state.email.isValid = false
+    this.state.password.isValid = false
+    this.state.password.message = "Your email or password is not correct"
+    this.setState(this.state);
   }
 
   render() {

@@ -54,8 +54,8 @@ collections:
         label: "Home Page"
         name: "home"
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "home-page/WelcomeCaption"}
-          - {label: Description, name: description, widget: text}
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "home-page/index"}
+          - {label: Welcome Description, name: welcome_description, widget: text}
 
 
 

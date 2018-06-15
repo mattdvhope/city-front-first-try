@@ -1,8 +1,19 @@
 import React from 'react';
-import WelcomeCaption from './Welcome';
+import WelcomeCaption from './WelcomeCaption';
 
-export default () => (
+export default ({ data }) => (
 
-  <WelcomeCaption />
+  <WelcomeCaption description={data.markdownRemark.frontmatter.welcome_description} />
 
 );
+
+export const homePageQuery = graphql`
+  query HomePage($id: String!) {
+    markdownRemark(id: { eq: $id }) {
+      frontmatter {
+        welcome_description
+      }
+    }
+  }
+`
+

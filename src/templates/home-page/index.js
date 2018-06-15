@@ -46,7 +46,7 @@ export const homePageQuery = graphql`
         welcome_description
         image1 {
           childImageSharp {
-            sizes(maxWidth: 630) {
+            sizes(maxWidth: 590) {
               ...GatsbyImageSharpSizes
             }
           }

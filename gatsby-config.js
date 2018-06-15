@@ -48,7 +48,22 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`, // To recognise files which are markdown and read their content. It will convert the frontmatter metadata part of your markdown file as frontmatter and the content part as HTML.
       options: {
-        plugins: [],
+        plugins: [
+          // gatsby-remark-relative-images must
+          // go before gatsby-remark-images
+          {
+            resolve: `gatsby-remark-relative-images`,
+          },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              // It's important to specify the maxWidth (in pixels) of
+              // the content container as this plugin uses this as the
+              // base for generating different widths of each image.
+              maxWidth: 590,
+            },
+          },
+        ],
       },
     },
     {

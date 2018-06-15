@@ -8,6 +8,6 @@ welcome_description: >-
   culture and worldview elements in to our learning model to better equip your
   for building relationships within the ASEAN community and beyond.  We want to
   help you succeed in life and in business!
-image1: ../../static/img/City-Talk-Class.jpg
+image1: /img/City-Talk-Class.jpg
 ---
 

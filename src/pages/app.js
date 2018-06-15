@@ -6,8 +6,6 @@ import Login from "../components/Login"
 import PrivateRoute from "../components/PrivateRoute"
 import Status from "../components/Status"
 
-console.log("in app.js");
-
 const App = () => (
   <div>
   	<Status />

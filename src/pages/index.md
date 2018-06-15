@@ -1,7 +1,7 @@
 ---
 templateKey: home-page/index
 welcome_description: >-
-  The City English Project makes learning English convenient,
+  We hope! The City English Project makes learning English convenient,
   affordable and fun!  And, we focus on what you need the most - conversational
   English skills. Our network offers classes, conversation partnerships and
   events to help you improve your conversational English. We also integrate

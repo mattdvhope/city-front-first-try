@@ -9,7 +9,6 @@ import styles from "../../sass/footer.module.css";
 import cityScape from '../../img/City-scape.jpg'
 import cityScapeMedium from '../../img/City-scape-medium.jpg'
 import cityScapeSmaller from '../../img/City-scape-smaller.jpg'
-import CEPLogo from '../../img/CEP-logo.jpg'
 
 const FooterContainer = styled.div`
   font-family: "Neue Frutiger W31 Modern Light", "Athiti";

@@ -6,10 +6,6 @@ import Img from "gatsby-image";
 import styled from "styled-components";
 import styles from "../../sass/member.module.css";
 
-import membership4Web from '../../img/Membership4Web.jpg'
-import holisticModel from '../../img/Holistic-Model.png'
-import friendsHelpingFriends from '../../img/Friends-helping-friends.png'
-
 const MemberContainer = styled.div`
   font-family: "Neue Frutiger W31 Modern Light", "Athiti";
   padding-top: 25px;

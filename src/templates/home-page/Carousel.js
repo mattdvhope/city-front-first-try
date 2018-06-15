@@ -4,10 +4,6 @@ import { Carousel } from 'react-bootstrap';
 import Img from "gatsby-image";
 
 import '../../sass/carousel.sass'
-import pic1 from '../../img/1Home-Page-Pic.jpg'
-import pic2 from '../../img/2YouCanSpeakAd.jpg'
-import pic3 from '../../img/3FreeClass.jpg'
-import pic4 from '../../img/4AtYourOffice.jpg'
 
 export default class ControlledCarousel extends React.Component {
   constructor(props, context) {

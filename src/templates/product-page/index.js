@@ -132,6 +132,8 @@ ProductPageTemplate.propTypes = {
 const ProductPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
 
+  console.log(frontmatter.image)
+
   return (
     <ProductPageTemplate
       image={frontmatter.image}

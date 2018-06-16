@@ -198,14 +198,13 @@ export default class WelcomeCaption extends Component {
 
   render() {
 
-    const { frontmatter } = this.props.data.markdownRemark;
-
     return (
       <WelcomeContainer style={{backgroundImage: `url('${this.state.imageChosen}')`, backgroundSize: `cover`}}>
 
         <Grid fluid>
           <TextContainer>
-            {frontmatter.description}
+            {console.log(this.props)}
+            {this.props.description}
             Click here to learn more about us.
             Or, <ModalStyler><ModalApplication getApplication="click here" /></ModalStyler> to sign up for our popular "You Can Speak!" English class.
           </TextContainer>
@@ -216,13 +215,3 @@ export default class WelcomeCaption extends Component {
     )
   }
 }
-
-export const homePageQuery = graphql`
-  query HomePage($id: String!) {
-    markdownRemark(id: { eq: $id }) {
-      frontmatter {
-        description
-      }
-    }
-  }
-`

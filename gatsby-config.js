@@ -29,6 +29,8 @@ module.exports = {
       }
     },
     `gatsby-plugin-styled-components`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -43,8 +45,6 @@ module.exports = {
         name: `images`,
       },
     },
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-transformer-remark`, // To recognise files which are markdown and read their content. It will convert the frontmatter metadata part of your markdown file as frontmatter and the content part as HTML.
       options: {

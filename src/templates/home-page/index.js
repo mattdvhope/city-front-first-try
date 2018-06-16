@@ -44,7 +44,13 @@ export const homePageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       frontmatter {
         welcome_description
-        image
+        image {
+          childImageSharp {
+            sizes(maxWidth: 590) {
+              ...GatsbyImageSharpSizes
+            }
+          }
+        }
       }
     }
     carouselImage1: imageSharp(id: { regex: "/1Home-Page-Pic/" }) {

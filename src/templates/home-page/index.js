@@ -35,7 +35,7 @@ export default ({ data }) => (
     <Footer
       footerlImage={data.footerlImage}
     />
-
+ 
   </div>
 );
 

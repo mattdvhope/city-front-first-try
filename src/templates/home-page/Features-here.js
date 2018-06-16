@@ -34,18 +34,11 @@ export default (props) => (
 			</Row>
 			<Row>
 				<Col xs={12} sm={4}>
-
-          <img className={styles.firstAvatar} src={props.featureslImage1} alt=""/>
-
-      {/* 
           <Img
-            sizes={props.featureslImage1.childImageSharp.sizes}
+            sizes={props.featureslImage1.sizes}
             className={styles.firstAvatar}
             alt="You Can Speak!"
           />
-       */}
-
-
     			<TextContainer>
 						<h4 className={styles.subTitle}>"You Can Speak!"  Conversational English Class</h4>
 						<p className={styles.text}>Our "You Can Speak!" conversational English, culture and worldview class is a fun and interactive way to build confidence and learn to speak English with greater clarity. We offer beginner through intermediate level classes taught by TESOL certified native English speakers. <a className="modal-initiator non-summer-university" href="#" data-toggle="modal" data-target="#applicationmodal">Click here to sign up for a class!</a></p>

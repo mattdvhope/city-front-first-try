@@ -21,7 +21,7 @@ export default ({ data }) => (
     />
 
     <FeaturesHere
-      featureslImage1={data.markdownRemark.frontmatter.image}
+      featureslImage1={data.featureslImage1}
       featureslImage2={data.featureslImage2}
       featureslImage3={data.featureslImage3}
     />
@@ -44,13 +44,6 @@ export const homePageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       frontmatter {
         welcome_description
-        image {
-          childImageSharp {
-            sizes(maxWidth: 590) {
-              ...GatsbyImageSharpSizes
-            }
-          }
-        }
       }
     }
     carouselImage1: imageSharp(id: { regex: "/1Home-Page-Pic/" }) {

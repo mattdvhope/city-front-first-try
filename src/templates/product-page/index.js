@@ -147,7 +147,7 @@ const ProductPage = ({ data }) => {
       pricing={frontmatter.pricing}
     />
   )
-}
+} 
 
 ProductPage.propTypes = {
   data: PropTypes.shape({

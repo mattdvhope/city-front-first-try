@@ -35,15 +35,15 @@ export default (props) => (
 			<Row>
 				<Col xs={12} sm={4}>
 
-      {/* 
           <img className={styles.firstAvatar} src={props.featureslImage1} alt=""/>
 
-       */}
+      {/* 
           <Img
             sizes={props.featureslImage1.childImageSharp.sizes}
             className={styles.firstAvatar}
             alt="You Can Speak!"
           />
+       */}
 
 
     			<TextContainer>
